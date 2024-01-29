@@ -11,7 +11,7 @@
     <!-- Account Number -->
     <div class="login__field">
       <i class="login__icon fas fa-credit-card"></i>
-      <h2>Bank</h2>
+      <h2>Bank Details</h2>
       <input type="text" class="login__input" placeholder="Account Number" formControlName="accountNumber">
       <div *ngIf="bank_details?.get('accountNumber')?.hasError('required')" class="error-message">
         *required.
