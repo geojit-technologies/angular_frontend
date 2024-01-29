@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { BankDetailsComponent } from './bank-details/bank-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BankDetailsComponent
+    BankDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
