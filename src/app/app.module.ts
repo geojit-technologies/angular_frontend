@@ -7,6 +7,7 @@ import { BankDetailsComponent } from './bank-details/bank-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
+import { AddinfoComponent } from './addinfo/addinfo.component';
 
 
 
@@ -14,7 +15,8 @@ import { ProofUploadComponent } from './proof-upload/proof-upload.component';
   declarations: [
     AppComponent,
     BankDetailsComponent,
-    ProofUploadComponent
+    ProofUploadComponent,
+    AddinfoComponent
   ],
   imports: [
     BrowserModule,
