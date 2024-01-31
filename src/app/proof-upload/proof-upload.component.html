@@ -1,1 +1,34 @@
-<p>proof-upload works!</p>
+
+<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div><br><u>
+      <label for="aadhar">Upload Aadhar Card:</label><br><br></u>
+      <input type="file" id="aadhar" name="aadhar" (change)="onFileSelect($event, 'aadhar')" />
+      &nbsp;
+      <button type="button" (click)="uploadFile('aadhar')">Upload Aadhar</button>
+    </div>
+    <br>
+  
+    <div><u>
+      <label for="signature">Upload Signature:</label><br><br></u>
+      <input type="file" id="signature" name="signature" (change)="onFileSelect($event, 'signature')" />
+      &nbsp;&nbsp;&nbsp;
+      <button type="button" (click)="uploadFile('signature')">Upload Signature</button>
+    </div>
+    <br>
+  
+    <div><u>
+      <label for="pan">Upload PAN Card:</label><br><br>
+    </u>
+      <input type="file" id="pan" name="pan" (change)="onFileSelect($event, 'pan')" />
+      &nbsp;&nbsp;
+      <button type="button" (click)="uploadFile('pan')">Upload PAN</button>
+    </div>
+    <br>
+  
+    <div>
+        <br><br>
+      <button type="submit">Upload Documents</button>
+    </div>
+  </form>
+  
+
