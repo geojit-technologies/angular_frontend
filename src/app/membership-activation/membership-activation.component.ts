@@ -1,0 +1,44 @@
+// src/app/membership-activation/membership-activation.component.ts
+
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';  // Import necessary modules
+
+@Component({
+  selector: 'app-membership-activation',
+  templateUrl: './membership-activation.component.html',
+  styleUrls: ['./membership-activation.component.css']
+})
+export class MembershipActivationComponent {
+  membershipForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.membershipForm = this.formBuilder.group({
+      physicalMembership: [false, Validators.required],
+      dematMembership: [false, Validators.required],
+      declarationOne: [false, Validators.required],
+      declarationTwo: [false, Validators.required]
+    });
+  }
+
+  submitForm() {
+    if (this.membershipForm.valid && this.areDeclarationsChecked()) {
+      // Perform submission logic here
+      console.log('Form submitted successfully!');
+      alert('Both declaration checkboxes are checked!');
+      // You can show a success message or navigate to another page
+    } else {
+      alert('Please check all checkboxes before submitting.');
+    }
+  }
+
+  areDeclarationsChecked(): boolean {
+    const declarationOneControl = this.membershipForm.get('declarationOne');
+    const declarationTwoControl = this.membershipForm.get('declarationTwo');
+
+    return declarationOneControl !== null && declarationTwoControl !== null &&
+           declarationOneControl.value && declarationTwoControl.value;
+  }
+}
+
+
+

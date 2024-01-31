@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 import { AddinfoComponent } from './addinfo/addinfo.component';
 import { ProfilesComponent } from './profiles/profiles.component';
-import { ActiveMembershipComponent } from './active-membership/active-membership.component';
+import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
+
 
 
 
@@ -20,7 +21,8 @@ import { ActiveMembershipComponent } from './active-membership/active-membership
     ProofUploadComponent,
     AddinfoComponent,
     ProfilesComponent,
-    ActiveMembershipComponent,
+    MembershipActivationComponent,
+    
     
   ],
   imports: [
