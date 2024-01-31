@@ -8,7 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 import { AddinfoComponent } from './addinfo/addinfo.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { ActiveMembershipComponent } from './active-membership/active-membership.component';
 
 
 
@@ -18,7 +19,9 @@ import { ProfileComponent } from './profile/profile.component';
     BankDetailsComponent,
     ProofUploadComponent,
     AddinfoComponent,
-    ProfileComponent
+    ProfilesComponent,
+    ActiveMembershipComponent,
+    
   ],
   imports: [
     BrowserModule,

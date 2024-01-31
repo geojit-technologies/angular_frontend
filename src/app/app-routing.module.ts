@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BankDetailsComponent } from './bank-details/bank-details.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 
 
 
 const routes: Routes = [
   {
-    path:'bank_details',
-    component:BankDetailsComponent
+    path:'profiles',
+    component:ProfilesComponent
   }
 ];
 
