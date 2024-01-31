@@ -1,1 +1,46 @@
-<p>addinfo works!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Additional Information</title>
+    </head>
+    <body>
+    <form >
+        <h1 class="opacity">Additional Information</h1>
+        <div class="add_field">
+            <label for="fname">Investor Annual Income*</label><br>
+            <input type="text" class="" placeholder="Investor Annual Income" formControlName="InvestorAnnualIncome">
+        </div><br>
+        <div class="add_field">
+            <label for="fname">Country of Birth*</label><br>
+            <input type="text" class="" placeholder="Country of Birth" formControlName="CountryofBirth">
+        </div><br>
+        <div class="add_field">
+            <label for="fname">Net Worth</label><br>
+            <input type="text" class="" placeholder="Net Worth" formControlName="NetWorth">
+        </div><br>
+        <div class="add_field">
+            <label for="fname">Source of Income*</label><br>
+            <input type="text" class="" placeholder="Source of Income" formControlName="SourceofIncome">
+        </div><br>
+        <div class="add_field">
+            <label for="fname">Net Worth Date</label><br>
+            <input type="date" class="" placeholder="DD/MM/YYYY" formControlName="NetWorthDate" >
+        </div><br>
+        <div class="add_field">
+            <label for="fname">Occupation*</label><br>
+            <input type="text" class="" placeholder="Occupation" formControlName="Occupation">
+        </div><br>
+        <div class="add_field">
+            <p>Are you a politically exposed person</p>
+            <input type="radio" id="" name="exposedperson" value="Yes" formControlName="exposedperson">Yes
+            <input type="radio" id="" name="exposedperson" value="No" formControlName="exposedperson">No
+        </div><div class="add_field">
+            <p>Tax payer in country other than India</p>
+            <input type="radio" id="" name="country" value="Yes" formControlName="country">Yes
+            <input type="radio" id="" name="country" value="No" formControlName="country">No
+        </div><br>
+        <input type="checkbox" value="Declaration">I hereby declare the details furnished above are true and correct to the best of my kowledge <br><br>
+        <button class="btn btn-primary">SUBMIT</button>
+    </form>
+</body>
+</html>
