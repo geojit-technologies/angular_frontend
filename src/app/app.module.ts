@@ -10,7 +10,9 @@ import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 import { AddinfoComponent } from './addinfo/addinfo.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
-
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -22,6 +24,9 @@ import { MembershipActivationComponent } from './membership-activation/membershi
     AddinfoComponent,
     ProfilesComponent,
     MembershipActivationComponent,
+    SignupComponent,
+    SigninComponent,
+    HomeComponent,
     
     
   ],
