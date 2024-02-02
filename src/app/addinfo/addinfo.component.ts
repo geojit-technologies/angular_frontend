@@ -57,6 +57,7 @@ export class AddinfoComponent implements OnInit {
         occupation: this.additionalinfoForm.value.Occupation,
         polExpPerson: this.additionalinfoForm.value.exposedperson == 'Yes' ? true : false,
         taxPayer: this.additionalinfoForm.value.country  == 'Yes' ? true : false,
+        userid: localStorage.getItem('userIDData')
         
       };
       console.log('Submitted userData:', userData);
