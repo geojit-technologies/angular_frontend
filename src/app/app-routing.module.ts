@@ -8,9 +8,17 @@ import { SignupComponent } from './signup/signup.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
 import { HomeComponent } from './home/home.component';
 import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
+
   
 
+
 const routes: Routes = [
+
+  { path: 'profile', component: ProfilesComponent },
+  { path: 'membership-activation', component: MembershipActivationComponent },
+  { path: '', redirectTo: '/profile', pathMatch: 'full' }, // Redirect to profile on the default route
+  // Add other routes as needed
+
   {
     path:'login',
     component:SigninComponent
@@ -54,7 +62,9 @@ const routes: Routes = [
     redirectTo:'login',
     pathMatch:'full'
   }
-  
+ 
+
+
 
 ];
 

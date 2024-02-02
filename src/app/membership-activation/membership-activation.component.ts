@@ -1,7 +1,6 @@
-// src/app/membership-activation/membership-activation.component.ts
-
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';  // Import necessary modules
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-membership-activation',
@@ -9,9 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';  // Import 
   styleUrls: ['./membership-activation.component.css']
 })
 export class MembershipActivationComponent {
+
   membershipForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder) {
     this.membershipForm = this.formBuilder.group({
       physicalMembership: [false, Validators.required],
       dematMembership: [false, Validators.required],
@@ -29,7 +29,9 @@ export class MembershipActivationComponent {
     } else {
       alert('Please check all checkboxes before submitting.');
     }
+    this.router.navigate(['/home']);
   }
+  
 
   areDeclarationsChecked(): boolean {
     const declarationOneControl = this.membershipForm.get('declarationOne');
@@ -39,6 +41,7 @@ export class MembershipActivationComponent {
            declarationOneControl.value && declarationTwoControl.value;
   }
 }
+
 
 
 
