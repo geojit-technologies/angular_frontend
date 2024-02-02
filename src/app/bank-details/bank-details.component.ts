@@ -37,12 +37,13 @@ export class BankDetailsComponent implements OnInit {
         acctype: this.bank_details.value.accountType,
         accno: this.bank_details.value.accountNumber,
         ifsccode: this.bank_details.value.ifscCode,
+        userid: localStorage.getItem('userIDData')
       };
       console.log('Submitted bankdata:', bankdata);
       this.http.post("http://localhost:8080/api/v1/bank/save",bankdata,{responseType:'text'}).subscribe((resultData:any)=>
       {
         console.log(resultData,"resultData");
-        // localStorage.setItem('userID', resultData);
+        localStorage.setItem('userID', resultData);
         alert("bank details entered successfully");
       });
 
