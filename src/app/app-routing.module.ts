@@ -36,6 +36,10 @@ const routes: Routes = [
     path:'nominee-details',
     component: NomineeDetailsComponent
   },
+  {
+    path:'proof-upload',
+    component: ProofUploadComponent
+  },
   
   {
     path:'profiles',
