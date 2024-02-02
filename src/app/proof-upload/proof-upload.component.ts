@@ -1,75 +1,80 @@
-// import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-// @Component({
-//   selector: 'app-proof-upload',
-//   templateUrl: './proof-upload.component.html',
-//   styleUrls: ['./proof-upload.component.css']
-// })
-// export class ProofUploadComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-proof-upload',
   templateUrl: './proof-upload.component.html',
   styleUrls: ['./proof-upload.component.css']
 })
-export class ProofUploadComponent   {
-  aadharFile: File | null = null;
-  signatureFile: File | null = null;
-  panFile: File | null = null;
+export class ProofUploadComponent implements OnInit{
+  AadharImage: string="";
+PANImage: string=""; 
+BankImage: string=""; 
+  uploadForm: FormGroup;
 
-  onFileSelect(event: any, fileType: string): void {
-    if (event.target.files && event.target.files.length > 0) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    this.uploadForm = this.fb.group({
+      userId: [null, [Validators.required]],
+      aadharImg: [null, [Validators.required]],
+      panImg: [null, [Validators.required]],
+      bankImg: [null, [Validators.required]]
+    });
+  }
+
+  ngOnInit() {
+    // this.uploadForm = this.fb.group({
+    //   userId: [null, [Validators.required]],
+    //   aadharImg: [null, [Validators.required]],
+    //   panImg: [null, [Validators.required]],
+    //   bankImg: [null, [Validators.required]]
+    // });
+  }
+
+  onFileChange(event: any, type: string) {
+    if (event.target.files.length > 0) {
       const file = event.target.files[0];
-
-      // Update the appropriate file property based on fileType
-      switch (fileType) {
-        case 'aadhar':
-          this.aadharFile = file;
-          break;
-        case 'signature':
-          this.signatureFile = file;
-          break;
-        case 'pan':
-          this.panFile = file;
-          break;
-        default:
-          break;
-      }
+      this.uploadForm.get(type).setValue(file);
     }
   }
+  // onFileChange(event: any, type: string) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+      
+  //     // Example: Assuming you want to store the file content as a base64 string
+  //     this.getBase64(file).then((base64String: string) => {
+  //       this.uploadForm.get(type).patchValue(base64String);
+  //     });
+  //   }
+  // }
+  
+  // // Helper method to convert a file to a base64-encoded string
+  // getBase64(file: any): Promise<string> {
+  //   return new Promise((resolve, reject) => {
+  //     const reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result?.toString() || '');
+  //     reader.onerror = (error) => reject(error);
+  //   });
+  // }
 
-  uploadFile(fileType: string): void {
-    // Implement the upload logic for the specific file type
-    switch (fileType) {
-      case 'aadhar':
-        // Upload logic for Aadhar file
-        console.log('Uploading Aadhar file:', this.aadharFile);
-        break;
-      case 'signature':
-        // Upload logic for Signature file
-        console.log('Uploading Signature file:', this.signatureFile);
-        break;
-      case 'pan':
-        // Upload logic for PAN file
-        console.log('Uploading PAN file:', this.panFile);
-        break;
-      default:
-        break;
+onSubmit() {
+  if(this.uploadForm.valid){
+    // let userId = this.uploadForm.value.userId;
+    let userData={
+      aadharimg:this.uploadForm.value.AadharImage,
+      panimg:this.uploadForm.value.panImg,
+      bankimg:this.uploadForm.value.bankImg,
+    };
+    console.log('Submitted userData:',userData);
+    this.http.post("http://localhost:8080/api/fileuploads", userData, { responseType: 'text' }).subscribe((resultData:any)=>
+    {
+      console.log(resultData,"resultData");
+        localStorage.setItem('userID', resultData);
+        alert("bank details entered successfully");
+    });
+    
     }
-  }
-
-  onSubmit(): void {
-    // Implement your form submission logic here
-    // You can access the files using this.aadharFile, this.signatureFile, this.panFile
   }
 }
-

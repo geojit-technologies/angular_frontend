@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 import { AddinfoComponent } from './addinfo/addinfo.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { ProfileComponent } from './profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
