@@ -21,6 +21,7 @@ export class AddinfoComponent implements OnInit {
 
   
   additionalinfoForm: FormGroup;
+  isCheckboxChecked: boolean = false;
   // http: any;
 
   constructor(private fb: FormBuilder, private AddinfoserviceService : AddinfoserviceService,private http: HttpClient,private router: Router) { 
@@ -32,7 +33,8 @@ export class AddinfoComponent implements OnInit {
       NetWorthDate: ['', Validators.required],
       Occupation: ['', Validators.required],
       exposedperson:[''],
-      country:['']
+      country:[''],
+      declaration: [false, Validators.requiredTrue]
     });
   }
 
@@ -45,6 +47,25 @@ export class AddinfoComponent implements OnInit {
     //   confirmPassword: ['', Validators.required],
     // });
   }
+
+  onCheckboxChange() {
+    this.isCheckboxChecked = !this.isCheckboxChecked;
+  
+    // Enable or disable the submit button based on the checkbox status
+    const declarationControl = this.additionalinfoForm.get('declaration');
+    
+    if (declarationControl) { // Check if the control is not null
+      if (this.isCheckboxChecked) {
+        declarationControl.setValidators(Validators.requiredTrue);
+      } else {
+        declarationControl.clearValidators();
+      }
+      
+      declarationControl.updateValueAndValidity();
+    }
+  }
+  
+
 
   onSubmit() {
     if (this.additionalinfoForm.valid) {

@@ -39,8 +39,8 @@
             <input type="radio" id="" name="country" value="Yes" formControlName="country">Yes
             <input type="radio" id="" name="country" value="No" formControlName="country">No
         </div><br>
-        <input type="checkbox" value="Declaration">I hereby declare the details furnished above are true and correct to the best of my kowledge <br><br>
-        <button class="btn btn-primary">SUBMIT</button>
+        <input type="checkbox" value="Declaration" formControlName="declaration" (change)="onCheckboxChange()">I hereby declare the details furnished above are true and correct to the best of my kowledge <br><br>
+        <button class="btn btn-primary" [disabled]="!isCheckboxChecked">SUBMIT</button>
     </form>
 </body>
 </html>
