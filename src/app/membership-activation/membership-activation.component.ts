@@ -29,7 +29,7 @@ export class MembershipActivationComponent {
     } else {
       alert('Please check all checkboxes before submitting.');
     }
-    this.router.navigate(['/profiles']);
+    this.router.navigate(['/home']);
   }
   
 
