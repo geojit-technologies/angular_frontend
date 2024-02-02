@@ -9,6 +9,10 @@ import { MembershipActivationComponent } from './membership-activation/membershi
 import { HomeComponent } from './home/home.component';
 
 
+
+
+import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
+
   
 
 
@@ -39,6 +43,12 @@ const routes: Routes = [
     path:'addinfo',
     component:AddinfoComponent
   },
+
+  {
+    path:'nominee-details',
+    component: NomineeDetailsComponent
+  },
+  
   {
     path:'profiles',
     component:ProfilesComponent
