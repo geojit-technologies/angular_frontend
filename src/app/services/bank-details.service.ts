@@ -13,7 +13,7 @@ export class BankDetailsService {
   bankData: any;
 
   constructor(private http: HttpClient) {
-    this.bankData = localStorage.getItem('userID');
+    // this.bankData = localStorage.getItem('userID');
   }
 
   saveBankDetails(bankData: any): Observable<any> {
