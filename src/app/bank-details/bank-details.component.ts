@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BankDetailsService } from '../services/bank-details.service';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-bank-details',
   templateUrl: './bank-details.component.html',
@@ -36,6 +37,7 @@ export class BankDetailsComponent implements OnInit {
         acctype: this.bank_details.value.accountType,
         accno: this.bank_details.value.accountNumber,
         ifsccode: this.bank_details.value.ifscCode,
+        userid: localStorage.getItem('userIDData')
       };
       console.log('Submitted bankdata:', bankdata);
       this.http.post("http://localhost:8080/api/v1/bank/save",bankdata,{responseType:'text'}).subscribe((resultData:any)=>

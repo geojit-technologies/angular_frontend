@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 
+
   
 
 
@@ -37,6 +38,7 @@ const routes: Routes = [
     component:BankDetailsComponent
   },
   {
+
     path:'addinfo',
     component:AddinfoComponent
   },
@@ -51,6 +53,7 @@ const routes: Routes = [
   },
   
   {
+
     path:'profiles',
     component:ProfilesComponent
   },

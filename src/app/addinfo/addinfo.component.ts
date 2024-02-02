@@ -53,10 +53,10 @@ export class AddinfoComponent implements OnInit {
         countryOfBirth: this.additionalinfoForm.value.CountryofBirth,
         netWorth: this.additionalinfoForm.value.NetWorth,
         sourceOfIncome: this.additionalinfoForm.value.SourceofIncome,
-        netWorthDate: this.additionalinfoForm.value.NetWorthDate,
+        netWorthDate: this.additionalinfoForm.value.NetWorthDate, 
         occupation: this.additionalinfoForm.value.Occupation,
-        polExpPerson: this.additionalinfoForm.value.exposedperson,
-        taxPayer: this.additionalinfoForm.value.country,
+        polExpPerson: this.additionalinfoForm.value.exposedperson == 'Yes' ? true : false,
+        taxPayer: this.additionalinfoForm.value.country  == 'Yes' ? true : false,
         
       };
       console.log('Submitted userData:', userData);
