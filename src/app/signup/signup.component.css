@@ -1,6 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css?family=Raleway:400,700'); */
  
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -98,12 +98,13 @@ body {
 .login {
     width: 320px;
     padding: 30px;
-    padding-top: 156px;
+    padding-top: 50px;
 }
  
 .login__field {
     padding: 20px 0px;  
     position: relative;
+       
 }
  
 .login__icon {
@@ -186,4 +187,4 @@ body {
  
 .social-login__icon:hover {
     transform: scale(1.5);  
-}
+} */
