@@ -38,7 +38,7 @@ const routes: Routes = [
   },
   {
     path:'proof-upload',
-    component: ProofUploadComponent
+    component:ProofUploadComponent
   },
   
   {
