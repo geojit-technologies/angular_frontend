@@ -7,10 +7,10 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
 import { HomeComponent } from './home/home.component';
-<<<<<<< HEAD
-=======
+
+
   
->>>>>>> 819a9f4f28bc5703e769706e848ab0e42dd88784
+
 
 const routes: Routes = [
 
@@ -52,12 +52,10 @@ const routes: Routes = [
     redirectTo:'login',
     pathMatch:'full'
   }
-  
-<<<<<<< HEAD
  
-=======
 
->>>>>>> 819a9f4f28bc5703e769706e848ab0e42dd88784
+
+
 ];
 
 @NgModule({
