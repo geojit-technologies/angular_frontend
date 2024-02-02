@@ -1,34 +1,28 @@
 
-<form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-    <div><br><u>
-      <label for="aadhar">Upload Aadhar Card:</label><br><br></u>
-      <input type="file" id="aadhar" name="aadhar" (change)="onFileSelect($event, 'aadhar')" />
-      &nbsp;
-      <button type="button" (click)="uploadFile('aadhar')">Upload Aadhar</button>
-    </div>
-    <br>
+<div>
+    <h2>File Upload Form</h2>
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="userId">User ID:</label>
+        <input type="number" id="userId" formControlName="userId" required>
+      </div>
   
-    <div><u>
-      <label for="signature">Upload Signature:</label><br><br></u>
-      <input type="file" id="signature" name="signature" (change)="onFileSelect($event, 'signature')" />
-      &nbsp;&nbsp;&nbsp;
-      <button type="button" (click)="uploadFile('signature')">Upload Signature</button>
-    </div>
-    <br>
+      <div class="form-group">
+        <label for="aadharImg">Aadhar Image:</label>
+        <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" accept="image/*" required formControlName="AadharImage">
+      </div>
   
-    <div><u>
-      <label for="pan">Upload PAN Card:</label><br><br>
-    </u>
-      <input type="file" id="pan" name="pan" (change)="onFileSelect($event, 'pan')" />
-      &nbsp;&nbsp;
-      <button type="button" (click)="uploadFile('pan')">Upload PAN</button>
-    </div>
-    <br>
+      <div class="form-group">
+        <label for="panImg">PAN Image:</label>
+        <input type="file" id="panImg" (change)="onFileChange($event, 'panImg')" accept="image/*" required formControlName="PANImage">
+      </div>
   
-    <div>
-        <br><br>
-      <button type="submit">Upload Documents</button>
-    </div>
-  </form>
+      <div class="form-group">
+        <label for="bankImg">Bank Image:</label>
+        <input type="file" id="bankImg" (change)="onFileChange($event, 'bankImg')" accept="image/*" required formControlName="BankImage">
+      </div>
   
-
+      <button type="submit" [disabled]="uploadForm.invalid">Upload</button>
+    </form>
+  </div>
+  

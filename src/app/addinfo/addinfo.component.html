@@ -4,30 +4,30 @@
         <title>Additional Information</title>
     </head>
     <body>
-    <form >
+    <form [formGroup]="additionalinfoForm" (ngSubmit)="onSubmit()">
         <h1 class="opacity">Additional Information</h1>
         <div class="add_field">
             <label for="fname">Investor Annual Income*</label><br>
             <input type="text" class="" placeholder="Investor Annual Income" formControlName="InvestorAnnualIncome">
         </div><br>
         <div class="add_field">
-            <label for="fname">Country of Birth*</label><br>
+            <label for="countryofbirth">Country of Birth*</label><br>
             <input type="text" class="" placeholder="Country of Birth" formControlName="CountryofBirth">
         </div><br>
         <div class="add_field">
-            <label for="fname">Net Worth</label><br>
+            <label for="networth">Net Worth</label><br>
             <input type="text" class="" placeholder="Net Worth" formControlName="NetWorth">
         </div><br>
         <div class="add_field">
-            <label for="fname">Source of Income*</label><br>
+            <label for="sourceofincome">Source of Income*</label><br>
             <input type="text" class="" placeholder="Source of Income" formControlName="SourceofIncome">
         </div><br>
         <div class="add_field">
-            <label for="fname">Net Worth Date</label><br>
+            <label for="networthdate">Net Worth Date</label><br>
             <input type="date" class="" placeholder="DD/MM/YYYY" formControlName="NetWorthDate" >
         </div><br>
         <div class="add_field">
-            <label for="fname">Occupation*</label><br>
+            <label for="occupation">Occupation*</label><br>
             <input type="text" class="" placeholder="Occupation" formControlName="Occupation">
         </div><br>
         <div class="add_field">
