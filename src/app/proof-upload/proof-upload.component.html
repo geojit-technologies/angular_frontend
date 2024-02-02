@@ -10,7 +10,7 @@
    -->
     <div class="form-group">
       <label for="aadharImg">Aadhar Image :</label>&nbsp;
-      <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" accept="image/*" required
+      <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" required
         formControlName="aadharImg">
     </div>
 
@@ -26,7 +26,7 @@
         formControlName="bankImg">
     </div>
     <br>
-    
+
     <button type="submit" [disabled]="uploadForm.valid">Upload</button>
   </form>
 </div>

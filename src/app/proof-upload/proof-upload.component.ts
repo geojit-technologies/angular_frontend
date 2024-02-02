@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-proof-upload',
@@ -13,11 +13,13 @@ export class ProofUploadComponent implements OnInit {
   // PANImage: string = "";
   // BankImage: string = "";
   uploadForm: FormGroup;
-
+  aadharImgBase64image: any;
+  panImgBase64image:any;
+  bankImgBase64image:any;
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.uploadForm = this.fb.group({
       userId: [null, [Validators.required]],
-      aadharImg: [null, [Validators.required]],
+      aadharImg: ['', [Validators.required]],
       panImg: [null, [Validators.required]],
       bankImg: [null, [Validators.required]]
     });
@@ -31,11 +33,38 @@ export class ProofUploadComponent implements OnInit {
     //   bankImg: [null, [Validators.required]]
     // });
   }
+  handleUpload(event: any, type: string) {
+    const file = event.target.files[0];
+    if (type == "aadharImg") {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.aadharImgBase64image = reader.result, "reader.result"
+      };
+    }
+    if (type == "panImg") {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.panImgBase64image = reader.result, "reader.result"
+      };
+    }
+    if (type == "bankImg") {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.bankImgBase64image = reader.result, "reader.result"
+      };
+    }
+  }
+  
+
+
 
   onFileChange(event: any, type: string) {
+    console.log(event.target.files, "event.target.file")
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.uploadForm.get(type)?.setValue(file);
+      this.handleUpload(event, type);
     }
   }
   // onFileChange(event: any, type: string) {
