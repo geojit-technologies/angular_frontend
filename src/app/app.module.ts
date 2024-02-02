@@ -8,7 +8,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 import { AddinfoComponent } from './addinfo/addinfo.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -18,7 +22,13 @@ import { ProfileComponent } from './profile/profile.component';
     BankDetailsComponent,
     ProofUploadComponent,
     AddinfoComponent,
-    ProfileComponent
+    ProfilesComponent,
+    MembershipActivationComponent,
+    SignupComponent,
+    SigninComponent,
+    HomeComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
