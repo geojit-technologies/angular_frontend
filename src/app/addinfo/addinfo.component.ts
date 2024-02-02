@@ -61,7 +61,7 @@ export class AddinfoComponent implements OnInit {
         
       };
       console.log('Submitted userData:', userData);
-      this.http.post("http://localhost:8081/api/additional-info/save",userData,{responseType:'text'}).subscribe((resultData:any)=>
+      this.http.post("http://localhost:8080/api/additional-info/save",userData,{responseType:'text'}).subscribe((resultData:any)=>
       {
         console.log(resultData);
         localStorage.setItem('userID', resultData);
