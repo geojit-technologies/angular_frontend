@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BankDetailsComponent } from './bank-details/bank-details.component';
+import { AddinfoComponent } from './addinfo/addinfo.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
 import { HomeComponent } from './home/home.component';
-
-
+  
 
 const routes: Routes = [
   {
@@ -22,6 +23,14 @@ const routes: Routes = [
     component:HomeComponent
   },
   {
+    path:'bank_details',
+    component:BankDetailsComponent
+  },
+  {
+    path:'addinfo',
+    component:AddinfoComponent
+  },
+  {
     path:'profiles',
     component:ProfilesComponent
   },
@@ -35,6 +44,7 @@ const routes: Routes = [
     pathMatch:'full'
   }
   
+
 ];
 
 @NgModule({
