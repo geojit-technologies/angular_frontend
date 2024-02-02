@@ -1,28 +1,32 @@
-
 <div>
-    <h2>File Upload Form</h2>
-    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
+  <u>
+    <h2>proof Upload </h2>
+  </u>
+  <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
         <label for="userId">User ID:</label>
         <input type="number" id="userId" formControlName="userId" required>
       </div>
-  
-      <div class="form-group">
-        <label for="aadharImg">Aadhar Image:</label>
-        <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" accept="image/*" required formControlName="AadharImage">
-      </div>
-  
-      <div class="form-group">
-        <label for="panImg">PAN Image:</label>
-        <input type="file" id="panImg" (change)="onFileChange($event, 'panImg')" accept="image/*" required formControlName="PANImage">
-      </div>
-  
-      <div class="form-group">
-        <label for="bankImg">Bank Image:</label>
-        <input type="file" id="bankImg" (change)="onFileChange($event, 'bankImg')" accept="image/*" required formControlName="BankImage">
-      </div>
-  
-      <button type="submit" [disabled]="uploadForm.invalid">Upload</button>
-    </form>
-  </div>
-  
+   -->
+    <div class="form-group">
+      <label for="aadharImg">Aadhar Image :</label>&nbsp;
+      <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" accept="image/*" required
+        formControlName="aadharImg">
+    </div>
+
+    <div class="form-group">
+      <label for="panImg">PAN Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="file" id="panImg" (change)="onFileChange($event, 'panImg')" accept="image/*" required
+        formControlName="panImg">
+    </div>
+
+    <div class="form-group">
+      <label for="bankImg">Bank Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="file" id="bankImg" (change)="onFileChange($event, 'bankImg')" accept="image/*" required
+        formControlName="bankImg">
+    </div>
+    <br>
+    
+    <button type="submit" [disabled]="uploadForm.valid">Upload</button>
+  </form>
+</div>
