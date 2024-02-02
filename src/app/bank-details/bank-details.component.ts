@@ -3,9 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BankDetailsService } from '../services/bank-details.service';
 import { HttpClient } from '@angular/common/http';
 
-
-
-
 @Component({
   selector: 'app-bank-details',
   templateUrl: './bank-details.component.html',
