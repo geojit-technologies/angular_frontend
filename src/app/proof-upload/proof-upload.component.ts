@@ -35,7 +35,7 @@ BankImage: string="";
   onFileChange(event: any, type: string) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.uploadForm.get(type).setValue(file);
+      this.uploadForm.get(type)?.setValue(file);
     }
   }
   // onFileChange(event: any, type: string) {
