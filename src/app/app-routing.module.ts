@@ -5,6 +5,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
 import { HomeComponent } from './home/home.component';
+import { BankDetailsComponent } from './bank-details/bank-details.component';
 
 
 
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path:'home',
     component:HomeComponent
+  },
+  {
+    path:'bank_details',
+    component:BankDetailsComponent
   },
   {
     path:'profiles',

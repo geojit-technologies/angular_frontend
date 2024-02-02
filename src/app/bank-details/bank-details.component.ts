@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 
+
 @Component({
   selector: 'app-bank-details',
   templateUrl: './bank-details.component.html',
@@ -44,7 +45,7 @@ export class BankDetailsComponent implements OnInit {
       this.http.post("http://localhost:8080/api/v1/bank/save",bankdata,{responseType:'text'}).subscribe((resultData:any)=>
       {
         console.log(resultData,"resultData");
-        localStorage.setItem('userID', resultData);
+        // localStorage.setItem('userID', resultData);
         alert("bank details entered successfully");
       });
 
