@@ -8,6 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
 import { HomeComponent } from './home/home.component';
 import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
+import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 
   
 
