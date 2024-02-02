@@ -1,0 +1,34 @@
+<!-- src/app/membership-activation/membership-activation.component.html -->
+
+<div class="membership-container">
+    <h2>Membership Activation</h2>
+  
+    <form [formGroup]="membershipForm" (submit)="submitForm()">
+      <div class="form-group">
+        <label>Membership Type:</label>
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" formControlName="physicalMembership"> Physical
+          </label>
+          <label>
+            <input type="checkbox" formControlName="dematMembership"> Demat
+          </label>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Declaration:</label>
+        <div class="checkbox-group">
+          <label>
+            <input type="checkbox" formControlName="declarationOne"> I agree to the terms and conditions
+          </label>
+          <label>
+            <input type="checkbox" formControlName="declarationTwo"> I confirm my details are accurate
+          </label>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="!membershipForm.valid">Submit</button>
+    </form>
+  </div>
+  
