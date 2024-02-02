@@ -7,6 +7,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
 import { HomeComponent } from './home/home.component';
+import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
   
 
 const routes: Routes = [
@@ -30,6 +31,12 @@ const routes: Routes = [
     path:'addinfo',
     component:AddinfoComponent
   },
+
+  {
+    path:'nominee-details',
+    component: NomineeDetailsComponent
+  },
+  
   {
     path:'profiles',
     component:ProfilesComponent
