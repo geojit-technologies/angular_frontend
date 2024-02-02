@@ -30,7 +30,7 @@ export class NomineeDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
   onChange(){
-    
+
   }
 
   onSubmit() {
@@ -41,6 +41,7 @@ export class NomineeDetailsComponent implements OnInit {
         dateofbirth: this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.dateofbirth :'',
         relationship:this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.relationship :'',
         nonominee: this.nominee_details.value.nonominee,
+        userid: localStorage.getItem('userIDData')
       };
       console.log('Submitted nomineedata:', nomineeData);
       this.http.post("http://localhost:8080/api/nominee-details/submit", nomineeData, { responseType: 'text' }).subscribe((resultData: any) => {
