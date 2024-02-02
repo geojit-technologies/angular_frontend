@@ -67,6 +67,7 @@ export class ProofUploadComponent implements OnInit {
       aadharimg: this.uploadForm.value.aadharImg,
       panimg: this.uploadForm.value.panImg,
       bankimg: this.uploadForm.value.bankImg,
+      userid: localStorage.getItem('userIDData')
     };
     console.log('Submitted userData:', userData);
     this.http.post("http://localhost:8080/api/fileuploads", userData, { responseType: 'text' }).subscribe((resultData: any) => {
