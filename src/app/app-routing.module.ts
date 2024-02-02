@@ -7,12 +7,9 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
 import { HomeComponent } from './home/home.component';
-<<<<<<< HEAD
-import { BankDetailsComponent } from './bank-details/bank-details.component';
-=======
 import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
->>>>>>> 113e1610161f5d9d20833df295bb4ef0ee8cdaef
+
 
   
 
@@ -41,8 +38,7 @@ const routes: Routes = [
     component:BankDetailsComponent
   },
   {
-<<<<<<< HEAD
-=======
+
     path:'addinfo',
     component:AddinfoComponent
   },
@@ -57,7 +53,7 @@ const routes: Routes = [
   },
   
   {
->>>>>>> 113e1610161f5d9d20833df295bb4ef0ee8cdaef
+
     path:'profiles',
     component:ProfilesComponent
   },
