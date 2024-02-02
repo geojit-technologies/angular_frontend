@@ -10,7 +10,7 @@ import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
 import { AddinfoComponent } from './addinfo/addinfo.component';
 
-import { ProfileComponent } from './profile/profile.component';
+// import { ProfileComponent } from './profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { MembershipActivationComponent } from './membership-activation/membership-activation.component';
