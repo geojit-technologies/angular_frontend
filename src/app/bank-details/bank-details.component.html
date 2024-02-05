@@ -1,47 +1,68 @@
 <form [formGroup]="bank_details" (ngSubmit)="onSubmit()" class="form-container">
-    <!-- Account Type -->
-    <div class="login__field">
-      <i class="login__icon fas fa-money-check-alt"></i>
-      <input type="text" class="login__input" placeholder="Account Type" formControlName="accountType">
-      <div *ngIf="bank_details?.get('accountType')?.hasError('required')" class="error-message">
-        *required.
-      </div>
+  <h2>Bank Details</h2>
+  <!-- Account Type -->
+  <div class="login__field">
+    <i class="login__icon fas fa-money-check-alt"></i>
+    <input type="text" class="login__input" placeholder="Account Type" formControlName="accountType">
+    <div *ngIf="bank_details?.get('accountType')?.hasError('required')" class="error-message">
+      *required.
     </div>
-  
-    <!-- Account Number -->
-    <div class="login__field">
-      <i class="login__icon fas fa-credit-card"></i>
-      <input type="text" class="login__input" placeholder="Account Number" formControlName="accountNumber">
-      <div *ngIf="bank_details?.get('accountNumber')?.hasError('required')" class="error-message">
-        *required.
-      </div>
-      <div *ngIf="bank_details?.get('accountNumber')?.hasError('pattern')" class="error-message">
-        *Account Number must contain only numeric characters.
-      </div>
-      <div *ngIf="bank_details?.get('accountNumber')?.hasError('minlength')" class="error-message">
-        *Account Number must be at least 8 characters long.
-      </div>
+  </div>
+
+  <!-- Account Number -->
+  <div class="login__field">
+    <i class="login__icon fas fa-credit-card"></i>
+    <input
+      type="text"
+      class="login__input"
+      placeholder="Account Number"
+      formControlName="accountNumber"
+      [attr.maxLength]="maxAccountNumberLength"
+      [disabled]="isAccountNumberDisabled()"
+    />
+    <div *ngIf="bank_details?.get('accountNumber')?.hasError('required')" class="error-message">
+      *required.
     </div>
-  
-    <!-- IFSC Code -->
-    <div class="login__field">
-      <i class="login__icon fas fa-university"></i>
-      <input type="text" class="login__input" placeholder="IFSC Code" formControlName="ifscCode">
-      <div *ngIf="bank_details?.get('ifscCode')?.hasError('required')" class="error-message">
-        *required.
-      </div>
-      <div *ngIf="bank_details?.get('ifscCode')?.hasError('pattern')" class="error-message">
-        *IFSC Code must contain only alphanumeric characters.
-      </div>
-      <div *ngIf="bank_details?.get('ifscCode')?.hasError('minlength')" class="error-message">
-        *IFSC Code must be 11 characters long.
-      </div>
+    <div *ngIf="bank_details?.get('accountNumber')?.hasError('pattern')" class="error-message">
+      
     </div>
-  
-    <!-- Submit Button -->
-    <button type="submit" class="button login__submit">
-      <span class="button__text">Submit</span>
-      <i class="button__icon fas fa-chevron-right"></i>
-    </button>
-  </form>
-  
+    <div *ngIf="bank_details?.get('accountNumber')?.hasError('minlength')" class="error-message">
+      
+    </div>
+  </div>
+
+  <!-- IFSC Code -->
+<div class="login__field">
+  <i class="login__icon fas fa-university"></i>
+  <input
+    type="text"
+    class="login__input"
+    placeholder="IFSC Code"
+    formControlName="ifscCode"
+    [attr.maxLength]="maxIfscCodeLength"
+    [disabled]="isIfscCodeDisabled()"
+  />
+  <div *ngIf="bank_details?.get('ifscCode')?.hasError('required')" class="error-message">
+    *required.
+  </div>
+  <div *ngIf="bank_details?.get('ifscCode')?.hasError('pattern')" class="error-message">
+    *IFSC Code must contain only alphanumeric characters.
+  </div>
+  <div *ngIf="bank_details?.get('ifscCode')?.hasError('minlength')" class="error-message">
+    *IFSC Code must be at least 11 characters long.
+  </div>
+</div>
+
+
+  <!-- Error Message Line -->
+  <div class="error-message-line">
+    <div *ngIf="bank_details?.get('accountNumber')?.hasError('pattern')">*Account Number must contain only numeric characters. </div>
+    <div *ngIf="bank_details?.get('accountNumber')?.hasError('minlength')">*Account Number must be at least 8 characters long. </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" class="button login__submit">
+    <span class="button__text">Submit</span>
+    <i class="button__icon fas fa-chevron-right"></i>
+  </button>
+</form>
