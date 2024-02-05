@@ -22,25 +22,65 @@ export class NomineeDetailsComponent implements OnInit {
       nomineename: ['', Validators.required],
       dateofbirth: ['', Validators.required],
       relationship: ['', Validators.required],
-      nonominee: ['', Validators.required]
+      noNominee: [false]  // Update the form control name to 'noNominee'
 
     });
+
+    // this.nominee_details.get('nonominee')?.setValue(false);
   }
 
   ngOnInit(): void {
   }
-  onChange(){
+  // onChange(event: any) {
 
-  }
+  //   if (event.target.checked) {
+  //     // Checkbox is checked
+  //     console.log('Checkbox checked');
+  //   } else {
+  //     // Checkbox is unchecked
+  //     console.log('Checkbox unchecked');
+  //   console.log(event,"eventtt")
+  //   // console.log(noNominee,"noNominee")
+  //   // const noNomineeValue = this.nominee_details.get('nonominee')?.value;
+  //   }
+
+  // }
 
   onSubmit() {
-    console.log("submitttttt")
+    console.log("submitting")
+     
     if (this.nominee_details.valid) {
+      if (this.nominee_details.get('noNominee')?.value) {
+        // If 'noNominee' checkbox is checked, reset values and clear validations
+        this.nominee_details.get('nomineename')?.setValue('');
+        this.nominee_details.get('dateofbirth')?.setValue('');
+        this.nominee_details.get('relationship')?.setValue('');
+        this.nominee_details.get('nomineename')?.clearValidators();
+        this.nominee_details.get('dateofbirth')?.clearValidators();
+        this.nominee_details.get('relationship')?.clearValidators();
+      } else {
+        // If 'noNominee' checkbox is unchecked, add validations back
+        this.nominee_details.get('nomineename')?.setValidators([Validators.required]);
+        this.nominee_details.get('dateofbirth')?.setValidators([Validators.required]);
+        this.nominee_details.get('relationship')?.setValidators([Validators.required]);
+      }
+
+      this.nominee_details.get('nomineename')?.updateValueAndValidity();
+      this.nominee_details.get('dateofbirth')?.updateValueAndValidity();
+      this.nominee_details.get('relationship')?.updateValueAndValidity();
+
+  
       let nomineeData = {
-        nomineename: this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.nomineename : '',
-        dateofbirth: this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.dateofbirth :'',
-        relationship:this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.relationship :'',
+        nomineename: this.nominee_details.value.nomineename,
+        dateofbirth: this.nominee_details.value.dateofbirth,
+        relationship: this.nominee_details.value.relationship,
         nonominee: this.nominee_details.value.nonominee,
+
+
+        // nomineename: this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.nomineename : '',
+        // dateofbirth: this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.dateofbirth : '',
+        // relationship: this.nominee_details.value.nonominee == 'false' ? this.nominee_details.value.relationship : '',
+        // nonominee: this.nominee_details.value.nonominee,
         userid: localStorage.getItem('userIDData')
       };
       console.log('Submitted nomineedata:', nomineeData);
@@ -49,6 +89,7 @@ export class NomineeDetailsComponent implements OnInit {
         localStorage.setItem('userID', resultData);
         alert("nominee details entered successfully");
       });
-    }
+    // }
   }
+}
 }
