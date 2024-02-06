@@ -23,4 +23,13 @@
     color: red;
     font-size: 12px;
   }
+
+  .error-message-line{
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: 47%;
+    right: 320px;
+
+  }
   
