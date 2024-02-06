@@ -77,17 +77,17 @@
             <p>Are you a politically exposed person</p>
             <input type="radio" id="" name="exposedperson" value="Yes" formControlName="exposedperson">Yes
             <input type="radio" id="" name="exposedperson" value="No" formControlName="exposedperson">No
-            <div *ngIf="additionalinfoForm.get('exposedperson')?.hasError('required')"class="error-message">
+            <!-- <div *ngIf="additionalinfoForm.get('exposedperson')?.hasError('required')"class="error-message">
                 Please select whether you are a politically exposed person.
-            </div>
+            </div> -->
         </div>
         <div class="add_field">
             <p>Tax payer in country other than India</p>
             <input type="radio" id="" name="country" value="Yes" formControlName="country">Yes
             <input type="radio" id="" name="country" value="No" formControlName="country">No
-            <div *ngIf="additionalinfoForm.get('country')?.hasError('required')"class="error-message">
+            <!-- <div *ngIf="additionalinfoForm.get('country')?.hasError('required')"class="error-message">
                 Please select whether you are a taxpayer in a country other than India.
-            </div>
+            </div> -->
         </div><br>
         <input type="checkbox" value="Declaration" formControlName="declaration" (change)="onCheckboxChange()">I hereby declare the details furnished above are true and correct to the best of my kowledge <br><br>
         <button class="btn btn-primary" [disabled]="!isCheckboxChecked">SUBMIT</button>
