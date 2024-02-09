@@ -16,6 +16,7 @@ export class ProofUploadComponent implements OnInit {
   aadharImgBase64image: any;
   panImgBase64image:any;
   bankImgBase64image:any;
+  
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.uploadForm = this.fb.group({
       userId: [null, [Validators.required]],
