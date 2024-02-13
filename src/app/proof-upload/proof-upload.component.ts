@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProofUploadService } from '../services/proof-upload.service';
 
 
 @Component({
@@ -14,16 +15,11 @@ export class ProofUploadComponent implements OnInit {
   // BankImage: string = "";
   uploadForm: FormGroup;
   aadharImgBase64image: any;
-  panImgBase64image:any;
-  bankImgBase64image:any;
-  
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.uploadForm = this.fb.group({
-      userId: [null, [Validators.required]],
-      aadharImg: ['', [Validators.required]],
-      panImg: [null, [Validators.required]],
-      bankImg: [null, [Validators.required]]
-    });
+  panImgBase64image: any;
+  bankImgBase64image: any;
+
+  constructor(private fb: FormBuilder, private http: HttpClient, private ProofUploadService: ProofUploadService) {
+
   }
 
   ngOnInit() {
@@ -33,6 +29,12 @@ export class ProofUploadComponent implements OnInit {
     //   panImg: [null, [Validators.required]],
     //   bankImg: [null, [Validators.required]]
     // });
+    this.uploadForm = this.fb.group({
+      userId: ["", [Validators.required]],
+      aadharImg: ["", [Validators.required,]],
+      panImg: ["", [Validators.required,]],
+      bankImg: ["", [Validators.required]],
+    });
   }
   handleUpload(event: any, type: string) {
     const file = event.target.files[0];
@@ -40,28 +42,25 @@ export class ProofUploadComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.aadharImgBase64image = reader.result, "reader.result"
+        this.aadharImgBase64image = reader.result
       };
     }
+
     if (type == "panImg") {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.panImgBase64image = reader.result, "reader.result"
+        this.panImgBase64image = reader.result
       };
     }
     if (type == "bankImg") {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.bankImgBase64image = reader.result, "reader.result"
+        this.bankImgBase64image = reader.result
       };
     }
   }
-  
-
-
-
   onFileChange(event: any, type: string) {
     console.log(event.target.files, "event.target.file")
     if (event.target.files.length > 0) {
@@ -90,22 +89,46 @@ export class ProofUploadComponent implements OnInit {
   // }
 
   onSubmit() {
-    console.log("submit123")
+    // console.log("submit123")
+    console.log(this.aadharImgBase64image, "this.aadharImgBase64image")
+    console.log(this.panImgBase64image, "this.panImgBase64image")
+    console.log(this.bankImgBase64image, "this.bankImgBase64image")
+
+    // this.uploadForm.patchValue({
+    //   aadharImg: '1234567890',
+    // });
+
+    // this.uploadForm.setValue({ userId: 'userId',aadharImg: 'aadharImg', panImg: 'panImg', bankImg:'bankImg' })
+    this.uploadForm.get('aadharImg').setValue(this.aadharImgBase64image)
+    this.uploadForm.get('panImg').setValue(this.panImgBase64image)
+    this.uploadForm.get('bankImg').setValue(this.bankImgBase64image)
     // if(this.uploadForm.valid){
     // let userId = this.uploadForm.value.userId;
-    let userData = {
-      aadharimg: this.uploadForm.value.aadharImg,
-      panimg: this.uploadForm.value.panImg,
-      bankimg: this.uploadForm.value.bankImg,
-      userid: localStorage.getItem('userIDData')
-    };
-    console.log('Submitted userData:', userData);
-    this.http.post("http://localhost:8080/api/fileuploads", userData, { responseType: 'text' }).subscribe((resultData: any) => {
-      console.log(resultData, "resultData");
-      localStorage.setItem('userID', resultData);
-      alert("bank details entered successfully");
-    });
+    // this.uploadForm.patchValue({
+    //   aadharImg: 'path/to/aadhar-image.jpg',
+    //   panImg: 'path/to/panImg-image.jpg',
+    //   bankImg: 'path/to/bankImg-image.jpg',
+    // });
+    // console.log(this.uploadForm.value.aadharImg, "this.uploadForm.value.aadharImg")
+    // if (this.uploadForm.valid) {
+      let userData = {
+        aadharimg: this.uploadForm.value.aadharImg,
+        panimg: this.uploadForm.value.panImg,
+        bankimg: this.uploadForm.value.bankImg,
+        userid: 8
+      };
+      console.log('Submitted userData:', userData);
+      this.ProofUploadService.submitProofData(userData).subscribe((data)=>{
+        console.log(data,"data123456")
+      })
+      // this.http.post('http://localhost:8080/api/fileuploads/file', userData).subscribe((resultData: any) => {
+      //   console.log(resultData, "resultData");
+      //   localStorage.setItem('userID', resultData);
+      //   alert("bank details entered successfully");
+      // });
 
+
+      // }
     // }
   }
 }
