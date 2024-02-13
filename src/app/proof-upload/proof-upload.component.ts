@@ -102,15 +102,7 @@ export class ProofUploadComponent implements OnInit {
     this.uploadForm.get('aadharImg').setValue(this.aadharImgBase64image)
     this.uploadForm.get('panImg').setValue(this.panImgBase64image)
     this.uploadForm.get('bankImg').setValue(this.bankImgBase64image)
-    // if(this.uploadForm.valid){
-    // let userId = this.uploadForm.value.userId;
-    // this.uploadForm.patchValue({
-    //   aadharImg: 'path/to/aadhar-image.jpg',
-    //   panImg: 'path/to/panImg-image.jpg',
-    //   bankImg: 'path/to/bankImg-image.jpg',
-    // });
-    // console.log(this.uploadForm.value.aadharImg, "this.uploadForm.value.aadharImg")
-    // if (this.uploadForm.valid) {
+  
       let userData = {
         aadharimg: this.uploadForm.value.aadharImg,
         panimg: this.uploadForm.value.panImg,
