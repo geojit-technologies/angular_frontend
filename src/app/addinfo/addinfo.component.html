@@ -2,45 +2,97 @@
 <html lang="en">
     <head>
         <title>Additional Information</title>
+        <style>
+            .required::before {
+                content: '*';
+                color: red;
+            }
+            .error-message {
+                color: red;
+                font-size: 12px;
+            }
+        </style>
     </head>
     <body>
     <form [formGroup]="additionalinfoForm" (ngSubmit)="onSubmit()">
         <h1 class="opacity">Additional Information</h1>
         <div class="add_field">
-            <label for="fname">Investor Annual Income*</label><br>
+            <label for="fname" class="required">Investor Annual Income</label><br>
             <input type="text" class="" placeholder="Investor Annual Income" formControlName="InvestorAnnualIncome">
+            <!-- <div *ngIf="additionalinfoForm.get('InvestorAnnualIncome')?.hasError('required')" class="error-message">
+                Investor Annual Income is required.
+            </div> -->
+            <div *ngIf="additionalinfoForm.get('InvestorAnnualIncome')?.hasError('pattern')" class="error-message">
+                Investor Annual Income must be a number.
+            </div>
         </div><br>
         <div class="add_field">
-            <label for="countryofbirth">Country of Birth*</label><br>
-            <input type="text" class="" placeholder="Country of Birth" formControlName="CountryofBirth">
+            <label for="countryofbirth" class="required">Country of Birth</label><br>
+            <input type="text" class="" placeholder="Country of Birth" formControlName="CountryofBirth" >
+            <!-- <div *ngIf="additionalinfoForm.get('CountryofBirth')?.hasError('required')" class="error-message">
+                Country of Birth is required.
+            </div> -->
+            <div *ngIf="additionalinfoForm.get('CountryofBirth')?.hasError('pattern')"class="error-message">
+                Country of Birth must contain only alphabets.
+            </div>
         </div><br>
         <div class="add_field">
-            <label for="networth">Net Worth</label><br>
+            <label for="networth" class="required">Net Worth</label><br>
             <input type="text" class="" placeholder="Net Worth" formControlName="NetWorth">
+            <!-- <div *ngIf="additionalinfoForm.get('NetWorth')?.hasError('required')"class="error-message">
+                Net Worth is required.
+            </div> -->
+            <div *ngIf="additionalinfoForm.get('NetWorth')?.hasError('pattern')"class="error-message">
+                Net Worth must be a number.
+            </div>
         </div><br>
         <div class="add_field">
-            <label for="sourceofincome">Source of Income*</label><br>
+            <label for="sourceofincome" class="required">Source of Income</label><br>
             <input type="text" class="" placeholder="Source of Income" formControlName="SourceofIncome">
+            <!-- <div *ngIf="additionalinfoForm.get('SourceofIncome')?.hasError('required')"class="error-message">
+                Source of Income is required.
+            </div> -->
+            <div *ngIf="additionalinfoForm.get('SourceofIncome')?.hasError('pattern')"class="error-message">
+                Source of Income must contain only alphabets.
+            </div>
         </div><br>
         <div class="add_field">
-            <label for="networthdate">Net Worth Date</label><br>
-            <input type="date" class="" placeholder="DD/MM/YYYY" formControlName="NetWorthDate" >
+            <label for="networthdate" class="required">Net Worth Date</label><br>
+            <input type="date" class="" placeholder="YYYY-MM-DD" formControlName="NetWorthDate">
+            <!-- <div *ngIf="additionalinfoForm.get('NetWorthDate')?.hasError('required')"class="error-message">
+                Net Worth Date is required.
+            </div> -->
         </div><br>
         <div class="add_field">
-            <label for="occupation">Occupation*</label><br>
+            <label for="occupation" class="required">Occupation</label><br>
             <input type="text" class="" placeholder="Occupation" formControlName="Occupation">
+            <!-- <div *ngIf="additionalinfoForm.get('Occupation')?.hasError('required')"class="error-message">
+                Occupation is required.
+            </div> -->
+            <div *ngIf="additionalinfoForm.get('Occupation')?.hasError('pattern')"class="error-message">
+                Occupation must contain only alphabets.
+            </div>
         </div><br>
         <div class="add_field">
             <p>Are you a politically exposed person</p>
             <input type="radio" id="" name="exposedperson" value="Yes" formControlName="exposedperson">Yes
             <input type="radio" id="" name="exposedperson" value="No" formControlName="exposedperson">No
-        </div><div class="add_field">
+            <!-- <div *ngIf="additionalinfoForm.get('exposedperson')?.hasError('required')"class="error-message">
+                Please select whether you are a politically exposed person.
+            </div> -->
+        </div>
+        <div class="add_field">
             <p>Tax payer in country other than India</p>
             <input type="radio" id="" name="country" value="Yes" formControlName="country">Yes
             <input type="radio" id="" name="country" value="No" formControlName="country">No
+            <!-- <div *ngIf="additionalinfoForm.get('country')?.hasError('required')"class="error-message">
+                Please select whether you are a taxpayer in a country other than India.
+            </div> -->
         </div><br>
-        <input type="checkbox" value="Declaration">I hereby declare the details furnished above are true and correct to the best of my kowledge <br><br>
-        <button class="btn btn-primary">SUBMIT</button>
+        <input type="checkbox" value="Declaration" formControlName="declaration" (change)="onCheckboxChange()">I hereby declare the details furnished above are true and correct to the best of my kowledge <br><br>
+        <button class="btn btn-primary" [disabled]="!isCheckboxChecked">SUBMIT</button>
+        
     </form>
+    
 </body>
 </html>

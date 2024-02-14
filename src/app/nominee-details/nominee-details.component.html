@@ -1,27 +1,36 @@
+<html>
+
+<body>
 <div class="container">
     <h1>NOMINEE DETAILS</h1>
-    <form [formGroup]="nominee_details" (ngSubmit)="(onSubmit)">
+    <form [formGroup]="nominee_details" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="firstname">NOMINEE NAME</label><br>
-            <input type="text" name = "nomineename" class="form-control" formControlName="nomineename">
+            <input type="text" name="nomineename" class="form-control" formControlName="nomineename">
         </div>
         <pre></pre>
         <div class="form-group">
             <label for="dateofbirth">DATE OF BIRTH</label><br>
-            <input type="date" name = "dateofbirth" class="form-control" formControlName="dateofbirth">
+            <input type="date" name="dateofbirth" class="form-control" formControlName="dateofbirth">
         </div>
         <pre></pre>
         <div class="form-group">
             <label for="relationship">RELATIONSHIP</label><br>
-            <input type="text" name = "relationship" class="form-control"formControlName="relationship">
+            <input type="text" name="relationship" class="form-control" formControlName="relationship">
         </div>
         <pre></pre>
-        <div class="form-check">
-            <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input">
-            <label for="noNominee" class="form-check-label">I don't want to add a nominee</label>
-        </div>
-        <pre></pre>
-        <button class="btn btn-primary" type="continue">CONTINUE</button>
-    </form>
+       <!-- ... existing code ... -->
+
+<div class="form-check">
+    <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input" formControlName="noNominee" [(ngModel)]="isChecked" (change)="handleChange()">
+    <label for="noNominee" class="form-check-label">I don't want to add a nominee</label>
 </div>
 
+<!-- ... existing code ... -->
+
+        <pre></pre>
+        <button class="btn btn-primary" type="submit">CONTINUE</button>
+    </form>
+</div>
+</body>
+</html>
