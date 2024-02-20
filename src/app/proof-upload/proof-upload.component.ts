@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ProofUploadService } from '../services/proof-upload.service';
 
 @Component({
   selector: 'app-proof-upload',
@@ -9,60 +10,66 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./proof-upload.component.css']
 })
 export class ProofUploadComponent implements OnInit {
-  // AadharImage: string = "";
-  // PANImage: string = "";
-  // BankImage: string = "";
   uploadForm: FormGroup;
+  aadharImgBase64image: any;
+  panImgBase64image: any;
+  bankImgBase64image: any;
+  maxFileSize: number = 5 * 1024 * 1024; // 5MB
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.uploadForm = this.fb.group({
-      userId: [null, [Validators.required]],
-      aadharImg: [null, [Validators.required]],
-      panImg: [null, [Validators.required]],
-      bankImg: [null, [Validators.required]]
-    });
-  }
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private ProofUploadService: ProofUploadService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    // this.uploadForm = this.fb.group({
-    //   userId: [null, [Validators.required]],
-    //   aadharImg: [null, [Validators.required]],
-    //   panImg: [null, [Validators.required]],
-    //   bankImg: [null, [Validators.required]]
-    // });
+    this.uploadForm = this.fb.group({
+      userId: ["", [Validators.required]],
+      aadharImg: ["", [Validators.required, Validators.pattern(/^(?=.*\.(jpe?g|png)$)/)]],
+      panImg: ["", [Validators.required, Validators.pattern(/^(?=.*\.(jpe?g|png)$)/)]],
+      bankImg: ["", [Validators.required, Validators.pattern(/^(?=.*\.(jpe?g|png)$)/)]],
+    });
+  }
+  handleUpload(event: any, type: string) {
+    const file = event.target.files[0];
+    const fileType = file.type; // Get the file type
+
+    if (file.size > this.maxFileSize) {
+      this.uploadForm.get(type).setErrors({ 'maxSize': true });
+      return;
+    }
+
+    if (fileType !== 'image/jpeg' && fileType !== 'image/png') {
+      this.uploadForm.get(type).setErrors({ 'invalidType': true });
+      return;
+    }
+    
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      if (type === "aadharImg") {
+        this.aadharImgBase64image = reader.result;
+      } else if (type === "panImg") {
+        this.panImgBase64image = reader.result;
+      } else if (type === "bankImg") {
+        this.bankImgBase64image = reader.result;
+      }
+    };
   }
 
   onFileChange(event: any, type: string) {
+    console.log(event.target.files, "event.target.file")
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.uploadForm.get(type)?.setValue(file);
+      this.handleUpload(event, type);
     }
   }
-  // onFileChange(event: any, type: string) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-
-  //     // Example: Assuming you want to store the file content as a base64 string
-  //     this.getBase64(file).then((base64String: string) => {
-  //       this.uploadForm.get(type).patchValue(base64String);
-  //     });
-  //   }
-  // }
-
-  // // Helper method to convert a file to a base64-encoded string
-  // getBase64(file: any): Promise<string> {
-  //   return new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result?.toString() || '');
-  //     reader.onerror = (error) => reject(error);
-  //   });
-  // }
 
   onSubmit() {
-    console.log("submit123")
-    // if(this.uploadForm.valid){
-    // let userId = this.uploadForm.value.userId;
+    this.uploadForm.get('aadharImg').setValue(this.aadharImgBase64image);
+    this.uploadForm.get('panImg').setValue(this.panImgBase64image);
+    this.uploadForm.get('bankImg').setValue(this.bankImgBase64image);
+
     let userData = {
       aadharimg: this.uploadForm.value.aadharImg,
       panimg: this.uploadForm.value.panImg,
@@ -70,12 +77,10 @@ export class ProofUploadComponent implements OnInit {
       userid: localStorage.getItem('userIDData')
     };
     console.log('Submitted userData:', userData);
-    this.http.post("http://localhost:8080/api/fileuploads", userData, { responseType: 'text' }).subscribe((resultData: any) => {
-      console.log(resultData, "resultData");
-      localStorage.setItem('userID', resultData);
-      alert("bank details entered successfully");
+    
+    this.ProofUploadService.submitProofData(userData).subscribe((data) => {
+      console.log(data, "data123456");
+      alert("proof Details added successfully");
     });
-
-    // }
   }
 }

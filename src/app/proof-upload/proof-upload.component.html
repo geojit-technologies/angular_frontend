@@ -1,32 +1,86 @@
-<div>
-  <u>
-    <h2>proof Upload </h2>
-  </u>
-  <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
-    <!-- <div class="form-group">
-        <label for="userId">User ID:</label>
-        <input type="number" id="userId" formControlName="userId" required>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof Upload</title>
+  <style>
+    .required::after {
+      content: '*';
+      color: red;
+    }
+
+    .error {
+      color: red;
+      font-size: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <u>
+      <h1>Proof Upload</h1><br>
+    </u>
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="aadharImg" class="required">Aadhar Image :</label>&nbsp;
+        <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" required>
+        <div *ngIf="uploadForm.get('aadharImg').hasError('required')" class="error">
+          Please upload Aadhar image.
+        </div>
+        <div *ngIf="uploadForm.get('aadharImg').hasError('pattern')" class="error">
+          Valid image format: JPG or PNG.
+        </div>
+        <div *ngIf="uploadForm.get('aadharImg').hasError('maxSize')" class="error">
+          File size should be less than {{ maxFileSize / (1024 * 1024) }} MB.
+        </div>
+        <div *ngIf="uploadForm.get('aadharImg').hasError('invalidType')" class="error">
+          Invalid file type. Please upload a JPEG or PNG image.
+        </div>
       </div>
-   -->
-    <div class="form-group">
-      <label for="aadharImg">Aadhar Image :</label>&nbsp;
-      <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" accept="image/*" required
-        formControlName="aadharImg">
-    </div>
-
-    <div class="form-group">
-      <label for="panImg">PAN Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="file" id="panImg" (change)="onFileChange($event, 'panImg')" accept="image/*" required
-        formControlName="panImg">
-    </div>
-
-    <div class="form-group">
-      <label for="bankImg">Bank Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="file" id="bankImg" (change)="onFileChange($event, 'bankImg')" accept="image/*" required
-        formControlName="bankImg">
-    </div>
-    <br>
+      <br><br>
     
-    <button type="submit" [disabled]="uploadForm.valid">Upload</button>
-  </form>
-</div>
+      <div class="form-group">
+        <label for="panImg" class="required">PAN Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="file" id="panImg" (change)="onFileChange($event, 'panImg')" accept="image/*" required>
+        <div *ngIf="uploadForm.get('panImg').hasError('required')" class="error">
+          Please upload PAN image.
+        </div>
+        <div *ngIf="uploadForm.get('panImg').hasError('pattern')" class="error">
+          Valid image format: JPG or PNG.
+        </div>
+        <div *ngIf="uploadForm.get('panImg').hasError('maxSize')" class="error">
+          File size should be less than {{ maxFileSize / (1024 * 1024) }} MB.
+        </div>
+        <div *ngIf="uploadForm.get('panImg').hasError('invalidType')" class="error">
+          Invalid file type. Please upload a JPEG or PNG image.
+        </div>
+      </div>
+      <br><br>
+    
+      <div class="form-group">
+        <label for="bankImg" class="required">Bank Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="file" id="bankImg" (change)="onFileChange($event, 'bankImg')" accept="image/*" required>
+        <div *ngIf="uploadForm.get('bankImg').hasError('required')" class="error">
+          Please upload Bank image.
+        </div>
+        <div *ngIf="uploadForm.get('bankImg').hasError('pattern')" class="error">
+          Valid image format: JPG or PNG.
+        </div>
+        <div *ngIf="uploadForm.get('bankImg').hasError('maxSize')" class="error">
+          File size should be less than {{ maxFileSize / (1024 * 1024) }} MB.
+        </div>
+        <div *ngIf="uploadForm.get('bankImg').hasError('invalidType')" class="error">
+          Invalid file type. Please upload a JPEG or PNG image.
+        </div>
+      </div>
+      <br>
+      <br><br>
+      <button type="submit">Upload</button>
+    </form>
+  </div>
+</body>
+
+</html>
