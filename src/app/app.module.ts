@@ -14,6 +14,10 @@ import { MembershipActivationComponent } from './membership-activation/membershi
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 
@@ -37,7 +41,9 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

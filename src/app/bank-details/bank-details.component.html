@@ -60,9 +60,8 @@
     <div *ngIf="bank_details?.get('accountNumber')?.hasError('minlength')">*Account Number must be at least 8 characters long. </div>
   </div>
 
-  <!-- Submit Button -->
-  <button type="submit" class="button login__submit">
-    <span class="button__text">Submit</span>
-    <i class="button__icon fas fa-chevron-right"></i>
-  </button>
-</form>
+  <!-- Submit Button using Angular Material -->
+<button mat-raised-button color="primary" type="submit">
+  <span class="button__text">Submit</span>
+  <mat-icon class="button__icon"></mat-icon>
+</button>
