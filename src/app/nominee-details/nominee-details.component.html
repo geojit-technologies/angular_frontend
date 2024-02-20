@@ -1,22 +1,45 @@
 <html>
-
+<head>
+    <style>
+        .required::before{
+            content: '*';
+            color: red;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+        .future-date{
+            border: 1px solid red;
+        }
+    </style>
+</head>
 <body>
 <div class="container">
     <h1>NOMINEE DETAILS</h1>
     <form [formGroup]="nominee_details" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="firstname">NOMINEE NAME</label><br>
+            <label for="firstname" class="required">NOMINEE NAME</label><br>
             <input type="text" name="nomineename" class="form-control" formControlName="nomineename">
+            <div *ngIf="nominee_details.get('nomineename')?.hasError('pattern')" class="error-message">
+                Nominee name must be a character.
+            </div>
         </div>
         <pre></pre>
         <div class="form-group">
-            <label for="dateofbirth">DATE OF BIRTH</label><br>
+            <label for="dateofbirth" class="required">DATE OF BIRTH</label><br>
             <input type="date" name="dateofbirth" class="form-control" formControlName="dateofbirth">
+            <div *ngIf="nominee_details.get('dateofbirth')?.hasError('futureDate')" class="error-message">
+                Not Valid date.
+            </div>
         </div>
         <pre></pre>
         <div class="form-group">
-            <label for="relationship">RELATIONSHIP</label><br>
+            <label for="relationship" class="required">RELATIONSHIP</label><br>
             <input type="text" name="relationship" class="form-control" formControlName="relationship">
+            <div *ngIf="nominee_details.get('relationship')?.hasError('pattern')" class="error-message">
+                relationship must be a character.
+            </div>
         </div>
         <pre></pre>
        <!-- ... existing code ... -->
