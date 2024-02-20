@@ -12,14 +12,9 @@
       <input type="tel" id="phone" [value]="profiles?.phoneNumber" disabled>
     </div>
 
-    <div class="form-group">
-      <label for="activeMembership">Active Membership:</label>
-      <select id="activeMembership" [value]="profiles?.activeMembership" disabled>
-        <option value="physical">Physical</option>
-        <option value="demat">Demat</option>
-      </select>
-    </div>
+    
   </form>
 
   <button class="active-member-btn" (click)="navigateToMembershipActivation()">Activate Membership</button>
 </div>
+

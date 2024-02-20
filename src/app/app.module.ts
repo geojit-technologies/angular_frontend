@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BankDetailsComponent } from './bank-details/bank-details.component';
@@ -15,10 +14,12 @@ import { MembershipActivationComponent } from './membership-activation/membershi
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-
-
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,6 @@
+<html>
+
+<body>
 <div class="container">
     <h1>NOMINEE DETAILS</h1>
     <form [formGroup]="nominee_details" (ngSubmit)="onSubmit()">
@@ -16,12 +19,18 @@
             <input type="text" name="relationship" class="form-control" formControlName="relationship">
         </div>
         <pre></pre>
-        <div class="form-check">
-            <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input" >
-            <!-- (change)="onChange($event,'noNominee')" -->
-            <label for="noNominee" class="form-check-label">I don't want to add a nominee</label>
-        </div>
+       <!-- ... existing code ... -->
+
+<div class="form-check">
+    <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input" formControlName="noNominee" [(ngModel)]="isChecked" (change)="handleChange()">
+    <label for="noNominee" class="form-check-label">I don't want to add a nominee</label>
+</div>
+
+<!-- ... existing code ... -->
+
         <pre></pre>
-        <button class="btn btn-primary" type="continue">CONTINUE</button>
+        <button class="btn btn-primary" type="submit">CONTINUE</button>
     </form>
 </div>
+</body>
+</html>
