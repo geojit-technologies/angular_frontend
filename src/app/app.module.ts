@@ -15,6 +15,7 @@ import { MembershipActivationComponent } from './membership-activation/membershi
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -31,6 +32,7 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     SigninComponent,
     HomeComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

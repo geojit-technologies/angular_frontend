@@ -11,6 +11,10 @@
                 color: red;
                 font-size: 12px;
             }
+            .future-date {
+            border: 1px solid red; /* Apply red border for future dates */
+            }
+            
         </style>
     </head>
     <body>
@@ -62,6 +66,10 @@
             <!-- <div *ngIf="additionalinfoForm.get('NetWorthDate')?.hasError('required')"class="error-message">
                 Net Worth Date is required.
             </div> -->
+
+            <div *ngIf="additionalinfoForm.get('NetWorthDate')?.hasError('futureDate')" class="error-message">
+                Future dates are not allowed.
+            </div>
         </div><br>
         <div class="add_field">
             <label for="occupation" class="required">Occupation</label><br>
