@@ -18,9 +18,16 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
 import { PersonalDetailsService } from './services/personal-details.service';
 
 
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
+
     AppComponent,
     BankDetailsComponent,
     ProofUploadComponent,
@@ -31,7 +38,11 @@ import { PersonalDetailsService } from './services/personal-details.service';
     SignupComponent,
     SigninComponent,
     HomeComponent,
+
     PersonalDetailsComponent,
+
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +50,9 @@ import { PersonalDetailsService } from './services/personal-details.service';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule, 
   ],
   providers: [PersonalDetailsService],
   bootstrap: [AppComponent]

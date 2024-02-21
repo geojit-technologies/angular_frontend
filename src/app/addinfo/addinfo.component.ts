@@ -3,7 +3,7 @@
   import { AddinfoserviceService} from '../services/addinfoservice.service'; // Update with the actual path
   import { HttpClient } from '@angular/common/http';
   import { Router } from '@angular/router'; 
-  
+  import { AbstractControl } from '@angular/forms';
 
   @Component({
     selector: 'app-addinfo',
@@ -31,7 +31,7 @@
         CountryofBirth: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
         NetWorth: ['', [Validators.required,Validators.pattern(/^[0-9]+$/)]],
         SourceofIncome: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
-        NetWorthDate: ['', Validators.required],
+        NetWorthDate: ['', [Validators.required,this.futureDateValidator]],
         Occupation: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
         exposedperson:['',Validators.required],
         country:['',Validators.required],
@@ -47,6 +47,17 @@
       //   password: ['', Validators.required],
       //   confirmPassword: ['', Validators.required],
       // });
+    }
+
+    futureDateValidator(control: AbstractControl): { [key: string]: any } | null {
+      const selectedDate = new Date(control.value);
+      const today = new Date();
+  
+      // Check if the selected date is in the future
+      if (selectedDate > today) {
+        return { futureDate: true };
+      }
+      return null;
     }
 
     onCheckboxChange() {
@@ -90,7 +101,6 @@
           alert("User Data Submitted Successfully");
           // alert("Success");
           // this.router.navigate(['/login']);
-
         });
       }
       else {

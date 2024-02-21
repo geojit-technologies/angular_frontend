@@ -15,10 +15,17 @@
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
+    "@angular/material": "^7.3.7",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+
     "cors": "^2.8.5",
+
+    "add": "^2.0.6",
+    "bootstrap": "^5.3.2",
+    "ng": "^0.0.0",
+
     "ng2-pdf-viewer": "^10.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.6.2",
