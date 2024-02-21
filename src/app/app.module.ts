@@ -14,7 +14,8 @@ import { MembershipActivationComponent } from './membership-activation/membershi
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
-
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import { PersonalDetailsService } from './services/personal-details.service';
 
 
 
@@ -30,6 +31,7 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     SigninComponent,
     HomeComponent,
+    PersonalDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     
   ],
-  providers: [],
+  providers: [PersonalDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

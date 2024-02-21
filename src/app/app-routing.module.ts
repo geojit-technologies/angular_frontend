@@ -9,6 +9,8 @@ import { MembershipActivationComponent } from './membership-activation/membershi
 import { HomeComponent } from './home/home.component';
 import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+
 
 
   
@@ -61,6 +63,7 @@ const routes: Routes = [
     path:'membership-activation',
     component:MembershipActivationComponent
   },
+  { path: 'personal-details', component: PersonalDetailsComponent },
   {
     path:'',
     redirectTo:'login',
