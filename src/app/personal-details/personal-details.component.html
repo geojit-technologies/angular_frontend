@@ -1,0 +1,47 @@
+
+<form [formGroup]="personal_details" (ngSubmit)="onSubmit()" class="form-container">
+    <h2>Personal Details</h2>
+    <!-- Address -->
+    <div class="login__field">
+      <i class="login__icon fas fa-map-marker-alt"></i>
+      <input type="text" class="login__input" placeholder="Address" formControlName="address">
+      <div *ngIf="personal_details?.get('address')?.hasError('required')" class="error-message">
+       <!----->
+      </div>
+    </div>
+  
+    <!-- Date of Birth -->
+    <div class="login__field">
+      <i class="login__icon far fa-calendar-alt"></i>
+      <input type="date" class="login__input" placeholder="Date of Birth" formControlName="dateOfBirth">
+      <div *ngIf="personal_details?.get('dateOfBirth')?.hasError('required')" class="error-message">
+       <!----->
+      </div>
+    </div>
+  
+    <!-- Aadhar Number -->
+    <div class="login__field">
+      <i class="login__icon fas fa-id-card"></i>
+      <input type="text" class="login__input" placeholder="Aadhar Number" formControlName="aadharNumber">
+      <div *ngIf="personal_details?.get('aadharNumber')?.hasError('required')" class="error-message">
+       <!----->
+      </div>
+    </div>
+  
+    <!-- PAN Number -->
+    <div class="login__field">
+      <i class="login__icon fas fa-address-card"></i>
+      <input type="text" class="login__input" placeholder="PAN Number" formControlName="panNumber">
+      <div *ngIf="personal_details?.get('panNumber')?.hasError('required')" class="error-message">
+        <!----->
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <button type="submit" class="button login__submit">
+      <span class="button__text">Submit</span>
+      <i class="button__icon fas fa-chevron-right"></i>
+    </button>
+  </form>
+   
+  

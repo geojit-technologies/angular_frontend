@@ -23,7 +23,7 @@
     <u>
       <h1>Proof Upload</h1><br>
     </u>
-    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]=" uploadForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="aadharImg" class="required">Aadhar Image :</label>&nbsp;
         <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" required>
