@@ -48,6 +48,16 @@
       //   confirmPassword: ['', Validators.required],
       // });
     }
+    clearErrorMessage(controlName: string): void {
+      if (this.additionalinfoForm.get(controlName)?.invalid) {
+        this.additionalinfoForm.controls[controlName].setErrors(null);
+      }
+    }
+  
+    isErrorMessageVisible(controlName: string): boolean {
+      const control = this.additionalinfoForm.get(controlName);
+      return control ? control.dirty || control.touched : false;
+    }
 
     futureDateValidator(control: AbstractControl): { [key: string]: any } | null {
       const selectedDate = new Date(control.value);

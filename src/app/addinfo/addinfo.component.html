@@ -4,6 +4,7 @@
     <title>Additional Information</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Roboto, sans-serif;
@@ -11,7 +12,7 @@
             padding: 0;
         }
         .container {
-            max-width: 600px;
+            max-width: 900px;
             margin: 20px auto;
             padding: 100px;
             border: 1px solid #ccc;
@@ -47,38 +48,39 @@
 <body>
     <div class="container">
         <form [formGroup]="additionalinfoForm" (ngSubmit)="onSubmit()">
-            <h1>Additional Information</h1>
+            <h1 class="text-center">Additional Information</h1>
             <div class="add_field">
-                <label for="InvestorAnnualIncome" class="required">Investor Annual Income</label><br>
-                <input type="text" matInput placeholder="   Investor Annual Income" formControlName="InvestorAnnualIncome">
+                <label for="InvestorAnnualIncome" class="required">Investor Annual Income</label>
+                <input type="text" class="form-control" placeholder="Investor Annual Income" formControlName="InvestorAnnualIncome">
                 <div *ngIf="additionalinfoForm.get('InvestorAnnualIncome')?.hasError('pattern')" class="error-message">
                     Investor Annual Income must be a numeric value.
                 </div>
             </div>
             <div class="add_field">
-                <label for="CountryofBirth" class="required">Country of Birth</label><br>
-                <input type="text" matInput placeholder="   Country of Birth" formControlName="CountryofBirth">
+                <label for="CountryofBirth" class="required">Country of Birth</label>
+                <input type="text" class="form-control" placeholder="Country of Birth" formControlName="CountryofBirth">
                 <div *ngIf="additionalinfoForm.get('CountryofBirth')?.hasError('pattern')" class="error-message">
                     Country of Birth must contain only alphabets.
                 </div>
             </div>
             <div class="add_field">
-                <label for="NetWorth" class="required">Net Worth</label><br>
-                <input type="text" matInput placeholder="   Net Worth" formControlName="NetWorth">
+                <label for="NetWorth" class="required">Net Worth</label>
+                <input type="text" class="form-control" placeholder="Net Worth" formControlName="NetWorth">
                 <div *ngIf="additionalinfoForm.get('NetWorth')?.hasError('pattern')" class="error-message">
                     Net Worth must be a numeric value.
                 </div>
             </div>
             <div class="add_field">
-                <label for="SourceofIncome" class="required">Source of Income</label><br>
-                <input type="text" matInput placeholder="   Source of Income" formControlName="SourceofIncome">
+                <label for="SourceofIncome" class="required">Source of Income</label>
+                <input type="text" class="form-control" placeholder="Source of Income" formControlName="SourceofIncome">
                 <div *ngIf="additionalinfoForm.get('SourceofIncome')?.hasError('pattern')" class="error-message">
                     Source of Income must contain only alphabets.
                 </div>
             </div>
             <div class="add_field">
+                <label for="CountryofBirth" class="required">Net Worth Date</label>
                 <mat-form-field>
-                    <mat-label class="required">Net Worth Date</mat-label>
+                    <mat-label>&nbsp;&nbsp;&nbsp;Net Worth Date</mat-label>
                     <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="NetWorthDate">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -88,33 +90,38 @@
                 </div>
             </div>
             <div class="add_field">
-                <label for="Occupation" class="required">Occupation</label><br>
-                <input type="text" matInput placeholder="   Occupation" formControlName="Occupation">
+                <label for="Occupation" class="required">Occupation</label>
+                <input type="text" class="form-control" placeholder="Occupation" formControlName="Occupation">
                 <div *ngIf="additionalinfoForm.get('Occupation')?.hasError('pattern')" class="error-message">
                     Occupation must contain only alphabets.
                 </div>
             </div>
             <div class="add_field">
-                <p class="required">Are you a politically exposed person</p>
+                <label class="required">Are you a politically exposed person</label><br>
                 <mat-radio-group formControlName="exposedperson">
                     <mat-radio-button value="Yes">Yes</mat-radio-button>
                     &nbsp;<mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
             </div>
             <div class="add_field">
-                <p class="required">Taxpayer in a country other than India</p>
+                <label class="required">Taxpayer in a country other than India</label><br>
                 <mat-radio-group formControlName="country">
                     <mat-radio-button value="Yes">Yes</mat-radio-button>
                     &nbsp;<mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
             </div>
-            <div class="add_field">&nbsp;&nbsp;
-                <mat-checkbox formControlName="declaration" (change)="onCheckboxChange()">I hereby declare the details furnished above are true and correct to the best of my knowledge.</mat-checkbox>
+             <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="declaration" formControlName="declaration" (change)="onCheckboxChange()">
+                    <label class="form-check-label" for="declaration">I hereby declare the details furnished above are true and correct to the best of my knowledge.</label>
+                </div>
             </div>
+            <!-- Error message for invalid form -->
             <div *ngIf="additionalinfoForm.invalid && (additionalinfoForm.dirty || additionalinfoForm.touched)" class="error-message">
-                Please check whether you have entered the right format for each fields.
+                Please check whether you have entered the right format for each field.
             </div>
-            <button type="submit" class="btn-primary" [disabled]="additionalinfoForm.invalid">Submit</button>
+            <!-- Submit button with Bootstrap styling -->
+            <button type="submit" class="btn btn-primary" [disabled]="additionalinfoForm.invalid">Submit</button>
         </form>
     </div>
     <!-- Include Angular Material JS -->
