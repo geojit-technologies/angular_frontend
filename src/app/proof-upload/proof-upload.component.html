@@ -18,35 +18,70 @@
   <!-- Custom CSS -->
   <style>
       body {
-      font-family: Arial, sans-serif;
+      font-family:'Roboto', sans-serif;
       background-color: #f8f9fa;
     }
     .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 100px;
       border: 1px solid #ced4da;
-      border-radius: 5px;
+      border-radius: 10px;
       background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    /* h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #007bff;
+    } */
+    
+    label {
+      font-weight: bold;
+      color: #555;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 35px;
+    }
+    .form-control {
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      padding: 15px;
+      font-size: 18px; /* Increased font size for better visibility */
+      height: 60px;
     }
 
     .required::after {
       content: '*';
       color: red;
+      margin-left: 5px;
     }
 
     .error {
       color: red;
-      font-size: 10px;
+      font-size: 14px;
+      margin-top: 5px;
     }
     .upload-button {
-      margin-top: 10px;
+      margin-top: 20px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+    .upload-button:hover {
+      background-color: #0056b3;
+    }
+    /* Adjusted width and height of the file input */
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+    }
+    
   </style>
 </head>
 
@@ -58,8 +93,8 @@
     <form [formGroup]=" uploadForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <!-- <mat-form-field appearance="outline"> -->
-        <label for="aadharImg" class="required">Aadhar Image :</label>&nbsp;
-      <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" required>
+        <label for="aadharImg" class="required">Aadhar Image :</label>
+      <input type="file" id="aadharImg" class="form-control" (change)="onFileChange($event, 'aadharImg')" required>
 
         <div *ngIf="uploadForm.get('aadharImg').hasError('required')" class="error">
           Please upload Aadhar image.
@@ -75,11 +110,11 @@
         </div>
     
       </div>
-      <br><br>
+      
     
       <div class="form-group">
-        <label for="panImg" class="required">PAN Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="file" id="panImg" (change)="onFileChange($event, 'panImg')" accept="image/*" required>
+        <label for="panImg" class="required">PAN Image :</label>
+        <input type="file" id="panImg" class="form-control" (change)="onFileChange($event, 'panImg')" accept="image/*" required>
         <div *ngIf="uploadForm.get('panImg').hasError('required')" class="error">
           Please upload PAN image.
         </div>
@@ -93,11 +128,11 @@
           Invalid file type. Please upload a JPEG or PNG image.
         </div>
       </div>
-      <br><br>
+      
     
       <div class="form-group">
-        <label for="bankImg" class="required">Bank Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="file" id="bankImg" (change)="onFileChange($event, 'bankImg')" accept="image/*" required>
+        <label for="bankImg" class="required">Bank Image :</label>
+        <input type="file" id="bankImg" class="form-control" (change)="onFileChange($event, 'bankImg')" accept="image/*" required>
         <div *ngIf="uploadForm.get('bankImg').hasError('required')" class="error">
           Please upload Bank image.
         </div>
@@ -112,7 +147,7 @@
         </div>
       </div>
       <br>
-      <br><br>
+      
       <button type="submit" class="btn btn-primary upload-button">Upload</button>
     </form>
   </div>
