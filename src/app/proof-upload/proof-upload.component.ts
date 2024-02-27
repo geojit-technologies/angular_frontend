@@ -80,7 +80,7 @@ export class ProofUploadComponent implements OnInit {
     
     this.ProofUploadService.submitProofData(userData).subscribe((data) => {
       console.log(data, "data123456");
-      alert("proof Details added successfully");
+      alert("proof Details uploaded successfully");
     });
   }
 }

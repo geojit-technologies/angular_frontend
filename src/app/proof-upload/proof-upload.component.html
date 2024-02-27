@@ -5,28 +5,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proof Upload</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proof Upload</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Angular Material Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+  <!-- Angular Material Core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.12/angular-material.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
   <style>
+      body {
+      font-family:'Roboto', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 100px;
+      border: 1px solid #ced4da;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    /* h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #007bff;
+    } */
+    
+    label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .form-group {
+      margin-bottom: 35px;
+    }
+    .form-control {
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      padding: 15px;
+      font-size: 18px; /* Increased font size for better visibility */
+      height: 60px;
+    }
+
     .required::after {
       content: '*';
       color: red;
+      margin-left: 5px;
     }
 
     .error {
       color: red;
-      font-size: 10px;
+      font-size: 14px;
+      margin-top: 5px;
     }
+    .upload-button {
+      margin-top: 20px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .upload-button:hover {
+      background-color: #0056b3;
+    }
+    /* Adjusted width and height of the file input */
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+    }
+    
   </style>
 </head>
 
 <body>
-  <div>
+  <div  class="container">
     <u>
-      <h1>Proof Upload</h1><br>
+      <h1 class="text-center">Proof Upload</h1><br>
     </u>
     <form [formGroup]=" uploadForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="aadharImg" class="required">Aadhar Image :</label>&nbsp;
-        <input type="file" id="aadharImg" (change)="onFileChange($event, 'aadharImg')" required>
+        <!-- <mat-form-field appearance="outline"> -->
+        <label for="aadharImg" class="required">Aadhar Image :</label>
+      <input type="file" id="aadharImg" class="form-control" (change)="onFileChange($event, 'aadharImg')" required>
+
         <div *ngIf="uploadForm.get('aadharImg').hasError('required')" class="error">
           Please upload Aadhar image.
         </div>
@@ -39,12 +108,13 @@
         <div *ngIf="uploadForm.get('aadharImg').hasError('invalidType')" class="error">
           Invalid file type. Please upload a JPEG or PNG image.
         </div>
+    
       </div>
-      <br><br>
+      
     
       <div class="form-group">
-        <label for="panImg" class="required">PAN Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="file" id="panImg" (change)="onFileChange($event, 'panImg')" accept="image/*" required>
+        <label for="panImg" class="required">PAN Image :</label>
+        <input type="file" id="panImg" class="form-control" (change)="onFileChange($event, 'panImg')" accept="image/*" required>
         <div *ngIf="uploadForm.get('panImg').hasError('required')" class="error">
           Please upload PAN image.
         </div>
@@ -58,11 +128,11 @@
           Invalid file type. Please upload a JPEG or PNG image.
         </div>
       </div>
-      <br><br>
+      
     
       <div class="form-group">
-        <label for="bankImg" class="required">Bank Image :</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="file" id="bankImg" (change)="onFileChange($event, 'bankImg')" accept="image/*" required>
+        <label for="bankImg" class="required">Bank Image :</label>
+        <input type="file" id="bankImg" class="form-control" (change)="onFileChange($event, 'bankImg')" accept="image/*" required>
         <div *ngIf="uploadForm.get('bankImg').hasError('required')" class="error">
           Please upload Bank image.
         </div>
@@ -77,8 +147,8 @@
         </div>
       </div>
       <br>
-      <br><br>
-      <button type="submit">Upload</button>
+      
+      <button type="submit" class="btn btn-primary upload-button">Upload</button>
     </form>
   </div>
 </body>
