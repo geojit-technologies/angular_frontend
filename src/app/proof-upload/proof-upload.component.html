@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+  <!-- <meta charset="UTF-8"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proof Upload</title>
-  <meta charset="UTF-8">
+  <!-- <meta charset="UTF-8"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proof Upload</title>
   <!-- Bootstrap CSS -->
@@ -19,16 +18,18 @@
   <style>
       body {
       font-family:'Roboto', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
     }
     .container {
-      max-width: 800px;
-      margin: 50px auto;
+      max-width: 550px;
+      margin: 20px auto;
       padding: 100px;
-      border: 1px solid #ced4da;
+      border: 1px solid #0c71d6;
       border-radius: 10px;
-      background-color: #fff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #fbfcfc;
+      box-shadow: 0 4px 6px rgba(5, 5, 5, 0.1);
     }
     /* h1 {
       text-align: center;
@@ -38,21 +39,33 @@
     
     label {
       font-weight: bold;
-      color: #555;
+      color: #191818c2;
     }
 
     .form-group {
       margin-bottom: 35px;
     }
     .form-control {
-      border: 1px solid #ced4da;
-      border-radius: 4px;
-      padding: 15px;
-      font-size: 18px; /* Increased font size for better visibility */
-      height: 60px;
-    }
+  border: 1px solid #fcfcfc;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 18px;
+  height: 60px;
+  background-color: #d7dbdf; /* Light background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: all 0.3s ease; /* Smooth transition */
 
-    .required::after {
+  /* Gradient background */
+  background-image: linear-gradient(to bottom, #ffffff, #f5f8fa);
+
+  /* Hover effect */
+}
+.form-control:hover {
+  border-color: #66afe9; /* Change border color on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
+}
+
+    .required::before {
       content: '*';
       color: red;
       margin-left: 5px;
@@ -60,8 +73,11 @@
 
     .error {
       color: red;
-      font-size: 14px;
+      font-size: 12px;
       margin-top: 5px;
+    }
+    .form-group{
+      margin-bottom: 15px;
     }
     .upload-button {
       margin-top: 20px;
@@ -82,23 +98,24 @@
       padding: 10px;
     }
     
+    
   </style>
 </head>
 
 <body>
   <div  class="container">
-    <u>
+    
       <h1 class="text-center">Proof Upload</h1><br>
-    </u>
+    
     <form [formGroup]=" uploadForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <!-- <mat-form-field appearance="outline"> -->
-        <label for="aadharImg" class="required">Aadhar Image :</label>
+        <label for="aadharImg" class="required">Aadhar Image </label>
       <input type="file" id="aadharImg" class="form-control" (change)="onFileChange($event, 'aadharImg')" required>
 
-        <div *ngIf="uploadForm.get('aadharImg').hasError('required')" class="error">
+        <!-- <div *ngIf="uploadForm.get('aadharImg').hasError('required')" class="error">
           Please upload Aadhar image.
-        </div>
+        </div> -->
         <div *ngIf="uploadForm.get('aadharImg').hasError('pattern')" class="error">
           Valid image format: JPG or PNG.
         </div>
@@ -113,11 +130,11 @@
       
     
       <div class="form-group">
-        <label for="panImg" class="required">PAN Image :</label>
+        <label for="panImg" class="required">PAN Image </label>
         <input type="file" id="panImg" class="form-control" (change)="onFileChange($event, 'panImg')" accept="image/*" required>
-        <div *ngIf="uploadForm.get('panImg').hasError('required')" class="error">
+        <!-- <div *ngIf="uploadForm.get('panImg').hasError('required')" class="error">
           Please upload PAN image.
-        </div>
+        </div> -->
         <div *ngIf="uploadForm.get('panImg').hasError('pattern')" class="error">
           Valid image format: JPG or PNG.
         </div>
@@ -131,11 +148,11 @@
       
     
       <div class="form-group">
-        <label for="bankImg" class="required">Bank Image :</label>
+        <label for="bankImg" class="required">Bank Image </label>
         <input type="file" id="bankImg" class="form-control" (change)="onFileChange($event, 'bankImg')" accept="image/*" required>
-        <div *ngIf="uploadForm.get('bankImg').hasError('required')" class="error">
+        <!-- <div *ngIf="uploadForm.get('bankImg').hasError('required')" class="error">
           Please upload Bank image.
-        </div>
+        </div> -->
         <div *ngIf="uploadForm.get('bankImg').hasError('pattern')" class="error">
           Valid image format: JPG or PNG.
         </div>
