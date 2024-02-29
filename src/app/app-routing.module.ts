@@ -15,6 +15,7 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
 
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { Dashboard2Component } from './dashboard2/dashboard2.component';
 
 
   
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path:'dashboard',
     component:DashboardComponent
+  },
+  {
+    path:'dashboard2',
+    component:Dashboard2Component
   },
   {
     path:'home',
