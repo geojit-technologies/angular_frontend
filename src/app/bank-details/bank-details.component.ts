@@ -67,5 +67,9 @@ isIfscCodeDisabled(): boolean {
       alert('Please fill in all the required fields.');
     }
   }
+
+  onClear() {
+    this.bank_details.reset();
+  }
   
 }

@@ -10,6 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { NomineeDetailsComponent } from './nominee-details/nominee-details.component';
 import { ProofUploadComponent } from './proof-upload/proof-upload.component';
 
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+
+
+
+// import { DashboardComponent } from './dashboard/dashboard.component';
+import { Dashboard2Component } from './dashboard2/dashboard2.component';
+
 
   
 
@@ -28,6 +35,10 @@ const routes: Routes = [
   {
     path:'signin',
     component:SignupComponent
+  },
+  {
+    path:'dashboard2',
+    component:Dashboard2Component
   },
   {
     path:'home',
@@ -61,6 +72,7 @@ const routes: Routes = [
     path:'membership-activation',
     component:MembershipActivationComponent
   },
+  { path: 'personal-details', component: PersonalDetailsComponent },
   {
     path:'',
     redirectTo:'login',

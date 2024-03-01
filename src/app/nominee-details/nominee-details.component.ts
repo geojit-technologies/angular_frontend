@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NomineedetailsService } from '../services/nomineedetails.service';
 import { Router } from '@angular/router';
-
+import { AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-nominee-details',
   templateUrl: './nominee-details.component.html',
@@ -21,9 +21,9 @@ export class NomineeDetailsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private NomineeDetailsService: NomineedetailsService, private http: HttpClient, private router: Router) {
     this.nominee_details = this.fb.group({
-      nomineename: ['', Validators.required],
-      dateofbirth: ['', Validators.required],
-      relationship: ['', Validators.required],
+      nomineename: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
+      dateofbirth: ['', [Validators.required,this.futureDateValidator]],
+      relationship: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
       noNominee: [false]  // Update the form control name to 'noNominee'
 
     });
@@ -32,6 +32,18 @@ export class NomineeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  futureDateValidator(control: AbstractControl): { [key: string]: any } | null {
+    const selectedDate = new Date(control.value);
+    const today = new Date();
+
+    // Check if the selected date is in the future
+    if (selectedDate > today) {
+      return { futureDate: true };
+    }
+    return null;
+  }
+
 
   handleChange() {
     console.log('Checkbox is checked:', this.isChecked);

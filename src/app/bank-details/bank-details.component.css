@@ -1,35 +1,80 @@
+/* Bootstrap Classes */
 .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .login__submit {
-    /* align-self: flex-end; */
-    margin-top: 10px; /* Adjust as needed */
-  }
-  
-  .login__field {
-    position: relative;
-    margin-bottom: 15px;
-  }
-  
- 
+  max-width: 400px; /* Adjust as needed */
+  margin: 20px auto;
+}
+
+.login__field {
+  margin-bottom: 20px;
+}
+
+.login__input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.login__submit {
+  width: 100%;
+}
+
+/* Error Message Styling */
 .error-message {
-    position: absolute;
-    top: 50%;
-    left: 200px;
-    /* transform: translateY(-50%);  */
-    color: red;
-    font-size: 12px;
-  }
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
-  .error-message-line{
-    color: red;
-    font-size: 12px;
-    position: absolute;
-    top: 47%;
-    right: 320px;
+.error-message-line {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
+/* Angular Material UI Styling */
+.mat-form-field {
+  width: 100%;
+}
+
+/* Adjust margin and padding for better spacing */
+.mat-input-element {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* Bootstrap Grid for Responsive Layout */
+@media (min-width: 576px) {
+  .form-container {
+    max-width: 600px;
   }
-  
+}
+
+/* Add this to your existing CSS */
+
+/* Box Border Outline */
+.login__field {
+  position: relative;
+}
+
+.login__input:focus {
+  border: 2px solid #007bff; /* Adjust color as needed */
+  outline: none;
+}
+
+/* Clear Button Styling */
+button {
+  margin-top: 10px; /* Adjust spacing */
+}
+
+/* Additional Styling for Clear Button */
+button[mat-raised-button] {
+  margin-right: 10px; /* Adjust spacing */
+}
+
+/* Apply box border outline to Clear Button on focus */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #007bff; /* Adjust color and size as needed */
+}
+
