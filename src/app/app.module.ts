@@ -26,6 +26,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Dashboard2Component } from './dashboard2/dashboard2.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PersonalDetailsComponent,
 
     DashboardComponent,
+      Dashboard2Component,
 
   ],
   imports: [

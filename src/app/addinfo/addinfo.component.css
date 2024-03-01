@@ -12,6 +12,14 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
+    background-color: blue; /* Change color to blue */
+}
+
+.mat-radio-button.mat-accent .mat-radio-outer-circle {
+    border-color: blue; /* Change color to blue */
+}
+
 
 .container {
     max-width: 600px;
@@ -22,6 +30,13 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+/* .chekbox-group{
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 8px;
+} */
+
 
 h1 {
     font-size: 24px;
@@ -36,13 +51,30 @@ label {
 
 input[type="text"],
 .mat-form-field {
-    width: 100%;
-    padding: 10px;
+    width: 200%;
+    padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ced4da;
     border-radius: 4px;
     background-color: #f8f9fa;
 }
+input[type="date"],
+.mat-form-field {
+    width: 200%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.someElement {
+    line-height:55px;
+}
+.someElementt {
+    line-height:3px;
+}
+
 
 .error-message {
     color: #dc3545;
