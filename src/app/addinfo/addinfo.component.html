@@ -12,12 +12,30 @@
             padding: 0;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px; /* Increased max-width to accommodate two columns */
             margin: 20px auto;
-            padding: 100px;
-            border: 1px solid #ccc;
+            padding: 20px;
+            /* border: 1px solid #0c71d6; */
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            display: flex; /* Use flexbox for two-column layout */
+            justify-content: space-between; /* Align items to the start and end of container */
+            flex-wrap: wrap; /* Enable wrapping */
+            
+        }
+        .add_field {
+            width: 48%; /* Set width for each column */
+            display: flex; /* Use flexbox to align items vertically */
+            flex-direction: column; /* Align items vertically */
+            align-items: stretch; /* Stretch items vertically */
+            margin-bottom: 20px; /* Add bottom margin for spacing */
+        }
+        .add_field label {
+            margin-bottom: 5px; /* Add bottom margin for label spacing */
+        }
+        .add_field:nth-child(odd) {
+            margin-right: 4%; /* Add right margin to the first column */
         }
         .required::before {
             content: '*';
@@ -27,9 +45,6 @@
         .error-message {
             color: red;
             font-size: 12px;
-        }
-        .add_field {
-            margin-bottom: 15px;
         }
         .btn-primary {
             padding: 10px 20px;
@@ -47,83 +62,92 @@
 </head>
 <body>
     <div class="container">
-        <form [formGroup]="additionalinfoForm" (ngSubmit)="onSubmit()">
-            <h1 class="text-center">Additional Information</h1>
+        <form [formGroup]="additionalinfoForm" (ngSubmit)="onSubmit()" style="display: flex; flex-wrap: wrap;">
             <div class="add_field">
-                <label for="InvestorAnnualIncome" class="required">Investor Annual Income</label>
-                <input type="text" class="form-control" placeholder="Investor Annual Income" formControlName="InvestorAnnualIncome">
-                <div *ngIf="additionalinfoForm.get('InvestorAnnualIncome')?.hasError('pattern')" class="error-message">
-                    Investor Annual Income must be a numeric value.
+                <h1>Additional Details</h1>
+                <!-- Fields for the left column --><br>
+                <div class="add_field">
+                    <label for="InvestorAnnualIncome" class="required">Investor Annual Income</label>
+                    <input type="text" class="form-control" placeholder="Investor Annual Income" formControlName="InvestorAnnualIncome">
+                    <div *ngIf="additionalinfoForm.get('InvestorAnnualIncome')?.hasError('pattern')" class="error-message">
+                        Investor Annual Income must be a numeric value.
+                    </div>
+                </div>
+                <div class="add_field">
+                    <label for="CountryofBirth" class="required">Country of Birth</label>
+                    <input type="text" class="form-control" placeholder="Country of Birth" formControlName="CountryofBirth">
+                    <div *ngIf="additionalinfoForm.get('CountryofBirth')?.hasError('pattern')" class="error-message">
+                        Country of Birth must contain only alphabets.
+                    </div>
+                </div>
+                <div class="add_field">
+                    <label for="NetWorth" class="required">Net Worth</label>
+                    <input type="text" class="form-control" placeholder="Net Worth" formControlName="NetWorth">
+                    <div *ngIf="additionalinfoForm.get('NetWorth')?.hasError('pattern')" class="error-message">
+                        Net Worth must be a numeric value.
+                    </div>
+                </div>
+                <div class="add_field">
+                    <label for="SourceofIncome" class="required">Source of Income</label>
+                    <input type="text" class="form-control" placeholder="Source of Income" formControlName="SourceofIncome">
+                    <div *ngIf="additionalinfoForm.get('SourceofIncome')?.hasError('pattern')" class="error-message">
+                        Source of Income must contain only alphabets.
+                    </div>
                 </div>
             </div>
             <div class="add_field">
-                <label for="CountryofBirth" class="required">Country of Birth</label>
-                <input type="text" class="form-control" placeholder="Country of Birth" formControlName="CountryofBirth">
-                <div *ngIf="additionalinfoForm.get('CountryofBirth')?.hasError('pattern')" class="error-message">
-                    Country of Birth must contain only alphabets.
+                <!-- Fields for the right column -->
+                <br><br><br>
+                <div class="add_field">
+                    <label class="required" style="white-space: nowrap;">Are you a politically exposed person</label>
+                    <mat-radio-group formControlName="exposedperson">
+                        <mat-radio-button value="Yes" class="someElement">Yes</mat-radio-button>
+                        &nbsp;<mat-radio-button value="No" class="someElement">No</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="add_field">
+                    <label class="required" style="white-space: nowrap;">Taxpayer in a country other than India</label>
+                    <mat-radio-group formControlName="country">
+                        <mat-radio-button value="Yes" class="someElement">Yes</mat-radio-button>
+                        &nbsp;<mat-radio-button value="No" class="someElement">No</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="add_field">
+                   <label class="required"> <label for="NetWorthDate" class="someElementt">Net Worth Date</label></label>
+                        <input type="date" class="form-control" placeholder="Date of Birth" formControlName="dateOfBirth">
+                    <div *ngIf="additionalinfoForm.get('NetWorthDate')?.hasError('futureDate')" class="error-message">
+                        Future dates are not allowed.
+                    </div>
+                </div>
+                <div class="add_field">
+                    <label for="Occupation" class="required">Occupation</label>
+                    <input type="text" class="form-control" placeholder="Occupation" formControlName="Occupation">
+                    <div *ngIf="additionalinfoForm.get('Occupation')?.hasError('pattern')" class="error-message">
+                        Occupation must contain only alphabets.
+                    </div>
                 </div>
             </div>
-            <div class="add_field">
-                <label for="NetWorth" class="required">Net Worth</label>
-                <input type="text" class="form-control" placeholder="Net Worth" formControlName="NetWorth">
-                <div *ngIf="additionalinfoForm.get('NetWorth')?.hasError('pattern')" class="error-message">
-                    Net Worth must be a numeric value.
+            
+            <div style="width: 100%; text-align: center;">
+                <div class="add_field">
+                    <label>
+                        <mat-checkbox formControlName="declaration" (change)="onCheckboxChange()">I hereby declare the details furnished above are true and correct to the best of my knowledge.</mat-checkbox>
+                    </label>
                 </div>
             </div>
-            <div class="add_field">
-                <label for="SourceofIncome" class="required">Source of Income</label>
-                <input type="text" class="form-control" placeholder="Source of Income" formControlName="SourceofIncome">
-                <div *ngIf="additionalinfoForm.get('SourceofIncome')?.hasError('pattern')" class="error-message">
-                    Source of Income must contain only alphabets.
-                </div>
-            </div>
-            <div class="add_field">
-                <label for="CountryofBirth" class="required">Net Worth Date</label>
-                <mat-form-field>
-                    <mat-label>&nbsp;&nbsp;&nbsp;Net Worth Date</mat-label>
-                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="NetWorthDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-                <div *ngIf="additionalinfoForm.get('NetWorthDate')?.hasError('futureDate')" class="error-message">
-                    Future dates are not allowed.
-                </div>
-            </div>
-            <div class="add_field">
-                <label for="Occupation" class="required">Occupation</label>
-                <input type="text" class="form-control" placeholder="Occupation" formControlName="Occupation">
-                <div *ngIf="additionalinfoForm.get('Occupation')?.hasError('pattern')" class="error-message">
-                    Occupation must contain only alphabets.
-                </div>
-            </div>
-            <div class="add_field">
-                <label class="required">Are you a politically exposed person</label><br>
-                <mat-radio-group formControlName="exposedperson">
-                    <mat-radio-button value="Yes">Yes</mat-radio-button>
-                    &nbsp;<mat-radio-button value="No">No</mat-radio-button>
-                </mat-radio-group>
-            </div>
-            <div class="add_field">
-                <label class="required">Taxpayer in a country other than India</label><br>
-                <mat-radio-group formControlName="country">
-                    <mat-radio-button value="Yes">Yes</mat-radio-button>
-                    &nbsp;<mat-radio-button value="No">No</mat-radio-button>
-                </mat-radio-group>
-            </div>
-             <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="declaration" formControlName="declaration" (change)="onCheckboxChange()">
-                    <label class="form-check-label" for="declaration">I hereby declare the details furnished above are true and correct to the best of my knowledge.</label>
-                </div>
-            </div>
+    
             <!-- Error message for invalid form -->
             <div *ngIf="additionalinfoForm.invalid && (additionalinfoForm.dirty || additionalinfoForm.touched)" class="error-message">
                 Please check whether you have entered the right format for each field.
             </div>
-            <!-- Submit button with Bootstrap styling -->
-            <button type="submit" class="btn btn-primary" [disabled]="additionalinfoForm.invalid">Submit</button>
+    
+            <!-- Submit button -->
+            <div style="width: 100%; text-align: right;">
+                <button type="submit" class="btn btn-primary" [disabled]="additionalinfoForm.invalid">Continue</button>
+            </div>
         </form>
     </div>
+    
     <!-- Include Angular Material JS -->
     <script src="https://cdn.jsdelivr.net/npm/@angular/material@13.2.2/bundles/material.umd.js"></script>
 </body>

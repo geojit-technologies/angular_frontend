@@ -2,8 +2,9 @@
 
 <div class="membership-container">
     <h2>Membership Activation</h2>
-  
+    &nbsp;
     <form [formGroup]="membershipForm" (submit)="submitForm()">
+      
       <div class="form-group">
         <label>Membership Type:</label>
         <div class="checkbox-group">
@@ -16,14 +17,17 @@
         </div>
       </div>
   
+      &nbsp;
       <div class="form-group">
-        <label>Declaration:</label>
+        <label></label>
+        &nbsp;
         <div class="checkbox-group">
           <label>
-            <input type="checkbox" formControlName="declarationOne"> I agree to the terms and conditions
-          </label>
+            <input type="checkbox" formControlName="declarationOne"> I confirm my details are accurate.
+          </label></div>
+          <div class="checkbox-group">
           <label>
-            <input type="checkbox" formControlName="declarationTwo"> I confirm my details are accurate
+          <input type="checkbox" formControlName="declarationTwo"> I have accepted Geojit Terms and conditions.
           </label>
         </div>
       </div>

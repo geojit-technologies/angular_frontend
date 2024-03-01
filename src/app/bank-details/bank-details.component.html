@@ -24,7 +24,7 @@
       *required.
     </div>
     <div *ngIf="bank_details?.get('accountNumber')?.hasError('pattern')" class="error-message">
-      
+    
     </div>
     <div *ngIf="bank_details?.get('accountNumber')?.hasError('minlength')" class="error-message">
       
@@ -63,5 +63,11 @@
   <!-- Submit Button using Angular Material -->
 <button mat-raised-button color="primary" type="submit">
   <span class="button__text">Submit</span>
+  <mat-icon class="button__icon"></mat-icon>
+</button>
+
+
+<button mat-raised-button color="warn" type="button" (click)="onClear()">
+  <span class="button__text">Clear</span>
   <mat-icon class="button__icon"></mat-icon>
 </button>

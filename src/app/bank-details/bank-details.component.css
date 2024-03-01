@@ -49,3 +49,32 @@
     max-width: 600px;
   }
 }
+
+/* Add this to your existing CSS */
+
+/* Box Border Outline */
+.login__field {
+  position: relative;
+}
+
+.login__input:focus {
+  border: 2px solid #007bff; /* Adjust color as needed */
+  outline: none;
+}
+
+/* Clear Button Styling */
+button {
+  margin-top: 10px; /* Adjust spacing */
+}
+
+/* Additional Styling for Clear Button */
+button[mat-raised-button] {
+  margin-right: 10px; /* Adjust spacing */
+}
+
+/* Apply box border outline to Clear Button on focus */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #007bff; /* Adjust color and size as needed */
+}
+

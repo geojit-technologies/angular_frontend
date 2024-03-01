@@ -1,11 +1,18 @@
 /* src/app/membership-activation/membership-activation.component.css */
 
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #283048, #859398); /* Gradient background */
+  background-size: cover;
+  overflow: hidden;
+}
 .membership-container {
     text-align: center;
-    padding: 20px;
-    background-color: #f4f4f4;
+    padding: 90px;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
     max-width: 400px;
     margin: 0 auto;
   }
@@ -23,7 +30,7 @@
   }
   
   label {
-    display: block;
+    /* display: block; */
     margin-bottom: 8px;
     font-weight: bold;
   }
@@ -37,7 +44,7 @@
   button {
     padding: 10px;
     margin-top: 10px;
-    background-color: #4CAF50;
+    background-color: #0056b3;
     color: white;
     border: none;
     cursor: pointer;

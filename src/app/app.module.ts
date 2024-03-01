@@ -14,23 +14,19 @@ import { MembershipActivationComponent } from './membership-activation/membershi
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
-import { PersonalDetailsComponent } from './personal-details/personal-details.component';
-import { PersonalDetailsService } from './services/personal-details.service';
-
-
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { PersonalDetailsComponent } from './personal-details/personal-details.component';
+import { PersonalDetailsService } from './services/personal-details.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Dashboard2Component } from './dashboard2/dashboard2.component';
 
 @NgModule({
   declarations: [
@@ -45,10 +41,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignupComponent,
     SigninComponent,
     HomeComponent,
-
+    
     PersonalDetailsComponent,
 
     DashboardComponent,
+      Dashboard2Component,
 
   ],
   imports: [
@@ -58,15 +55,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule,
-    MatIconModule ,
     MatDatepickerModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatIconModule ,
     MatInputModule,
-    MatRadioModule,
-    MatCheckboxModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    MatRadioModule,
+    MatCheckboxModule
   ],
   providers: [PersonalDetailsService],
   bootstrap: [AppComponent]
