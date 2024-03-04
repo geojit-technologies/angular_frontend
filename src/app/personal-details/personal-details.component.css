@@ -1,0 +1,120 @@
+/* Reset styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1000px; /* Increased max-width to accommodate two columns */
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #0c71d6;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex; /* Use flexbox for two-column layout */
+  justify-content: space-between; /* Align items to the start and end of container */
+  flex-wrap: wrap; /* Enable wrapping */
+}
+
+.add_field {
+  width: 48%; /* Set width for each column */
+  display: flex; /* Use flexbox to align items vertically */
+  flex-direction: column; /* Align items vertically */
+  align-items: stretch; /* Stretch items vertically */
+  margin-bottom: 20px; /* Add bottom margin for spacing */
+}
+
+.add_field label {
+  margin-bottom: 5px; /* Add bottom margin for label spacing */
+}
+
+.add_field:nth-child(odd) {
+  margin-right: 2%; /* Add right margin to the first column */
+}
+
+.add_field:nth-child(even) {
+  margin-left: 2%; /* Add left margin to the second column */
+}
+
+.required::before {
+  content: '*';
+  color: red;
+  margin-right: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.form-control {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  font-size: 16px;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn.disabled {
+  pointer-events: none; /* Disables clicking */
+  cursor: not-allowed; /* Changes cursor to not allowed */
+  background-color: red; /* Changes button background color */
+  opacity: 0.5; /* Makes button semi-transparent */
+}
+
+/* Adjusting button container to move the submit button to the right */
+.container .submit-button-container {
+  width: 100%; /* Set width to 100% to occupy the entire container */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: flex-end; /* Align items to the end of container (right side) */
+}
+
+/* Submit Button */
+.container .submit-button-container .btn-primary {
+  /* Remove previous styling for the button */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container .submit-button-container .btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Heading Styles */
+.heading {
+  text-align: center; /* Center align the heading */
+  margin-bottom: 20px; /* Add bottom margin for spacing */
+  width: 100%; /* Make the heading span the entire width of the box */
+}
+
+.heading h2 {
+  font-size: 24px; /* Set font size for the heading */
+  margin-bottom: 10px; /* Add bottom margin for spacing */
+}
