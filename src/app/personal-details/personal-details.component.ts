@@ -24,6 +24,11 @@ export class PersonalDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
+
+
+
   onSubmit() {
     if (this.personal_details.valid) {
       const personalData = {
