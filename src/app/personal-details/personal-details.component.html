@@ -1,47 +1,55 @@
+<form [formGroup]="personal_details" (ngSubmit)="onSubmit()" class="container">
 
-<form [formGroup]="personal_details" (ngSubmit)="onSubmit()" class="form-container">
-    <h2>Personal Details</h2>
+
+     <!-- Heading -->
+     <div class="heading">
+        <h2>Personal Details</h2>
+    </div>
+
+
+
     <!-- Address -->
-    <div class="login__field">
-      <i class="login__icon fas fa-map-marker-alt"></i>
-      <input type="text" class="login__input" placeholder="Address" formControlName="address">
-      <div *ngIf="personal_details?.get('address')?.hasError('required')" class="error-message">
-       <!----->
-      </div>
+    <div class="add_field">
+        <label for="address" class="required">Address</label>
+        <input type="text" class="form-control" placeholder="Address" formControlName="address">
+        <div *ngIf="personal_details.get('address').invalid && personal_details.get('address').touched" class="error-message">*required</div>
     </div>
   
     <!-- Date of Birth -->
-    <div class="login__field">
-      <i class="login__icon far fa-calendar-alt"></i>
-      <input type="date" class="login__input" placeholder="Date of Birth" formControlName="dateOfBirth">
-      <div *ngIf="personal_details?.get('dateOfBirth')?.hasError('required')" class="error-message">
-       <!----->
-      </div>
+    <div class="add_field">
+        <label for="dateOfBirth" class="required">Date of Birth</label>
+        <input type="date" class="form-control" placeholder="Date of Birth" formControlName="dateOfBirth">
+        <div *ngIf="personal_details.get('dateOfBirth').invalid && personal_details.get('dateOfBirth').touched" class="error-message">*required</div>
     </div>
   
     <!-- Aadhar Number -->
-    <div class="login__field">
-      <i class="login__icon fas fa-id-card"></i>
-      <input type="text" class="login__input" placeholder="Aadhar Number" formControlName="aadharNumber">
-      <div *ngIf="personal_details?.get('aadharNumber')?.hasError('required')" class="error-message">
-       <!----->
-      </div>
+    <div class="add_field">
+        <label for="aadharNumber" class="required">Aadhar Number</label>
+        <input type="text" class="form-control" placeholder="Aadhar Number" formControlName="aadharNumber">
+        <div *ngIf="personal_details.get('aadharNumber').invalid && personal_details.get('aadharNumber').touched" class="error-message">*required</div>
     </div>
   
     <!-- PAN Number -->
-    <div class="login__field">
-      <i class="login__icon fas fa-address-card"></i>
-      <input type="text" class="login__input" placeholder="PAN Number" formControlName="panNumber">
-      <div *ngIf="personal_details?.get('panNumber')?.hasError('required')" class="error-message">
-        <!----->
-      </div>
+    <div class="add_field">
+        <label for="panNumber" class="required">PAN Number</label>
+        <input type="text" class="form-control" placeholder="PAN Number" formControlName="panNumber">
+        <div *ngIf="personal_details.get('panNumber').invalid && personal_details.get('panNumber').touched" class="error-message">*required</div>
     </div>
   
-    <!-- Submit Button -->
-    <button type="submit" class="button login__submit">
-      <span class="button__text">Submit</span>
-      <i class="button__icon fas fa-chevron-right"></i>
-    </button>
-  </form>
-   
+    <!-- Terms and Conditions Checkbox -->
+    <div class="add_field">
+        <label>
+            <input type="checkbox" formControlName="acceptTerms"> I here by accept the terms and conditions
+        </label>
+        <div *ngIf="personal_details.get('acceptTerms').invalid && personal_details.get('acceptTerms').touched" class="error-message">*You must accept the terms and conditions</div>
+    </div>
   
+    <!-- Submit Button Container -->
+    <div class="submit-button-container">
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary" [class.disabled]="personal_details.invalid || !personal_details.get('acceptTerms').value">Submit</button>
+    </div>
+</form>
+
+
+
