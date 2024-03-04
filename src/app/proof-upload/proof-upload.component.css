@@ -55,7 +55,7 @@ input[type="text"],
 .btn-primary {
   display: inline-block;
   padding: 10px 20px;
-  background-color:#0f764b;
+  background-color:#12b300;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -66,7 +66,8 @@ input[type="text"],
 }
 
 .btn-primary:hover {
-  background-color:#0f764b;
+  background-color:#12b300;
+
 }
 
 .btn-primary:disabled {
@@ -111,7 +112,7 @@ font-size: 18px;
 
 
 height: 50px;
-background-color: #fff; /* Light background color */
+background-color: #f3f7f2; /* Light background color */
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
 transition: all 0.3s ease; /* Smooth transition */
 
@@ -121,7 +122,7 @@ transition: all 0.3s ease; /* Smooth transition */
 /* Hover effect */
 }
 .form-control:hover {
-border-color:#0f764b; /* Change border color on hover */
+border-color:#12b300; /* Change border color on hover */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
 }
 
@@ -142,7 +143,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
   }
   .upload-button {
     margin-top: 20px;
-    background-color: #0f764b;
+    background-color: #12b300;
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
@@ -151,7 +152,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
     transition: background-color 0.3s ease;
   }
   .upload-button:hover {
-    background-color: #0f764b;
+    background-color: #12b300;
   }
   /* Adjusted width and height of the file input */
   input[type="file"] {
@@ -313,7 +314,7 @@ width: calc(48px - (4px * 2));
 transition: width .3s ease;
 }
 #sidebar .side-menu li a.logout {
-color: var(--red);
+color: var(--green);
 }
 #sidebar .side-menu.top li a:hover {
 color: var(--green);
@@ -506,7 +507,7 @@ color: var(--dark-grey);
 pointer-events: none;
 }
 #content main .head-title .left .breadcrumb li a.active {
-color: var(--blue);
+color: var(--green);
 pointer-events: unset;
 }
 #content main .head-title .btn-download {
@@ -550,7 +551,7 @@ align-items: center;
 }
 #content main .box-info li:nth-child(1) .bx {
 background: var(--light-blue);
-color: var(--blue);
+color: var(--green);
 }
 #content main .box-info li:nth-child(2) .bx {
 background: var(--light-yellow);
