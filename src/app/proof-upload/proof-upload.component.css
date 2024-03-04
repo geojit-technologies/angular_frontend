@@ -1,3 +1,6 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 *{
   box-sizing: border-box;
   margin: 0;
@@ -163,9 +166,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
       background-color: #f0f0f0; /* Change this to the desired grey color */
       }
       /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
 margin: 0;
@@ -430,7 +431,7 @@ width: 20px;
 height: 20px;
 border-radius: 50%;
 border: 2px solid var(--light);
-background: var(--red);
+background: var(--green);
 color: var(--light);
 font-weight: 700;
 font-size: 12px;
