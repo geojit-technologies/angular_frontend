@@ -55,7 +55,7 @@ input[type="text"],
 .btn-primary {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color:#0f764b;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -66,7 +66,7 @@ input[type="text"],
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color:#0f764b;
 }
 
 .btn-primary:disabled {
@@ -121,7 +121,7 @@ transition: all 0.3s ease; /* Smooth transition */
 /* Hover effect */
 }
 .form-control:hover {
-border-color: #66afe9; /* Change border color on hover */
+border-color:#0f764b; /* Change border color on hover */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
 }
 
@@ -142,7 +142,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
   }
   .upload-button {
     margin-top: 20px;
-    background-color: #007bff;
+    background-color: #0f764b;
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
@@ -151,7 +151,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increase shadow on hover */
     transition: background-color 0.3s ease;
   }
   .upload-button:hover {
-    background-color: #0056b3;
+    background-color: #0f764b;
   }
   /* Adjusted width and height of the file input */
   input[type="file"] {
@@ -185,7 +185,7 @@ list-style: none;
 --lato: 'Lato', sans-serif;
 
 --light: #F9F9F9;
---blue: #3C91E6;
+--green:#12b300;
 --light-blue: #CFE8FF;
 --grey: #eee;
 --dark-grey: #AAAAAA;
@@ -242,7 +242,7 @@ font-weight: 700;
 height: 56px;
 display: flex;
 align-items: center;
-color: var(--blue);
+color: var(--green);
 position: sticky;
 top: 0;
 left: 0;
@@ -306,7 +306,7 @@ white-space: nowrap;
 overflow-x: hidden;
 }
 #sidebar .side-menu.top li.active a {
-color: var(--blue);
+color: var(--green);
 }
 #sidebar.hide .side-menu li a {
 width: calc(48px - (4px * 2));
@@ -316,7 +316,7 @@ transition: width .3s ease;
 color: var(--red);
 }
 #sidebar .side-menu.top li a:hover {
-color: var(--blue);
+color: var(--green);
 }
 #sidebar .side-menu li a .bx {
 min-width: calc(60px  - ((4px + 6px) * 2));
@@ -380,7 +380,7 @@ font-size: 16px;
 transition: .3s ease;
 }
 #content nav .nav-link:hover {
-color: var(--blue);
+color: var(--green);
 }
 #content nav form {
 max-width: 400px;
@@ -409,7 +409,7 @@ height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
-background: var(--blue);
+background: var(--green);
 color: var(--light);
 font-size: 18px;
 border: none;
@@ -459,7 +459,7 @@ top: 2px;
 left: 2px;
 bottom: 2px;
 width: calc(25px - 4px);
-background: var(--blue);
+background: var(--green);
 border-radius: 50%;
 transition: all .3s ease;
 }
@@ -513,7 +513,7 @@ pointer-events: unset;
 height: 36px;
 padding: 0 16px;
 border-radius: 36px;
-background: var(--blue);
+background: var(--green);
 color: var(--light);
 display: flex;
 justify-content: center;
@@ -642,7 +642,7 @@ border-radius: 20px;
 font-weight: 700;
 }
 #content main .table-data .order table tr td .status.completed {
-background: var(--blue);
+background: var(--green);
 }
 #content main .table-data .order table tr td .status.process {
 background: var(--yellow);
@@ -673,7 +673,7 @@ align-items: center;
 cursor: pointer;
 }
 #content main .table-data .todo .todo-list li.completed {
-border-left: 10px solid var(--blue);
+border-left: 10px solid var(--green);
 }
 #content main .table-data .todo .todo-list li.not-completed {
 border-left: 10px solid var(--orange);
