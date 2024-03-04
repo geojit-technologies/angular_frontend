@@ -25,7 +25,7 @@ const routes: Routes = [
 
   { path: 'profile', component: ProfilesComponent },
   { path: 'membership-activation', component: MembershipActivationComponent },
-  { path: '', redirectTo: '/profile', pathMatch: 'full' }, // Redirect to profile on the default route
+  // { path: '', redirectTo: '/profile', pathMatch: 'full' }, // Redirect to profile on the default route
   // Add other routes as needed
 
   {
