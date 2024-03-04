@@ -83,4 +83,11 @@ export class ProofUploadComponent implements OnInit {
       alert("proof Details uploaded successfully");
     });
   }
+  //Sidebar toggle show hide function
+  // status = false;
+  // addToggle()
+  // {
+  //  this.status = !this.status;       
+  // }
+
 }

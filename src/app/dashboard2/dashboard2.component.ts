@@ -18,5 +18,6 @@ export class Dashboard2Component implements OnInit {
   {
    this.status = !this.status;       
   }
+  
 
 }
