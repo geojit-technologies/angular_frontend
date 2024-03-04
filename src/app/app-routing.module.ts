@@ -14,7 +14,8 @@ import { PersonalDetailsComponent } from './personal-details/personal-details.co
 
 
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
+import { Dashboard2Component } from './dashboard2/dashboard2.component';
 
 
   
@@ -24,7 +25,7 @@ const routes: Routes = [
 
   { path: 'profile', component: ProfilesComponent },
   { path: 'membership-activation', component: MembershipActivationComponent },
-  { path: '', redirectTo: '/profile', pathMatch: 'full' }, // Redirect to profile on the default route
+  // { path: '', redirectTo: '/profile', pathMatch: 'full' }, // Redirect to profile on the default route
   // Add other routes as needed
 
   {
@@ -36,8 +37,8 @@ const routes: Routes = [
     component:SignupComponent
   },
   {
-    path:'dashboard',
-    component:DashboardComponent
+    path:'dashboard2',
+    component:Dashboard2Component
   },
   {
     path:'home',
