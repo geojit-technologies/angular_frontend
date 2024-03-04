@@ -1,140 +1,307 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Nominee Details</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Roboto, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
 
-        .container {
-    max-width: 1000px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 100px;
-    border: 1px solid #4b8df7;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column; /* Change to column to align items vertically */
-    align-items: flex-start; /* Align items to the start (left) */
+<head>
+  <title>Nominee Details</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+      body {
+          font-family: Roboto, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #fff;
+  padding: 27px;
+  /* border: 1px solid #4b8df7; */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column; /* Change to column to align items vertically */
+  align-items: flex-start; /* Align items to the start (left) */
+  justify-content: left;
+  
+}
+
+.required::before{
+  content: '*';
+  color: red;
+  margin-right: 5px;
 }
 
 h1 {
-    text-align: left; /* Align the heading to the left */
-    margin-bottom: 20px; /* Add margin for spacing */
+  text-align: left; /* Align the heading to the left */
+  margin-bottom: 20px; /* Add margin for spacing */
+  font-size: 24px;
+  color: #333;
+}
+
+label{
+font-weight: bold;
+color: #555;
+}
+
+input[type="text"],
+.mat-form-field
+{
+  width: 200%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+input[type="date"],
+.mat-form-field
+{
+  width: 200%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+
+.mat-checkbox{
+  margin-left: 15px;
 }
 
 .form-group {
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row; /* Keep it as row */
-    align-items: center; /* Align items vertically in the center */
+  width: 200%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row; /* Keep it as row */
+  align-items: center; /* Align items vertically in the center */
+
 }
 
 .form-group label {
-    flex: 1;
-    font-weight: bold;
-    margin-bottom: 5px;
-    margin-right: 10px;
-    color: black;
-    text-align: right;
+  flex: 1;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  color: black;
+  text-align: left;
 }
 
 .form-group input,
 .form-group select {
-    flex: 2; /* Adjusted flex value */
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
+  flex: 2; /* Adjusted flex value */
+  width: 100%;
+  max-width: 400%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  
 }
 
 
-        .error-message {
-            color: red;
-            font-size: 12px;
-            margin-top: 5px;
-        }
+      .error-message {
+          color: red;
+          font-size: 12px;
+          margin-top: 5px;
+      }
 
-        .form-check {
-            display: flex; 
-            align-items: center;
-            margin-top: 15px;
-        }
+      .form-check {
+          display: flex; 
+          align-items: center;
+          margin-top: 15px;
+      }
 
-        .form-check input {
-            margin-right: 10px;
-        }
+      .form-check input {
+          margin-right: 10px;
+      }
 
-        .btn-primary {
-            background-color: #1262b3;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: block;
-            margin: auto;
-            margin-top: 20px;
-        }
+      .btn-primary {
+          
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          display: inline-block;
+          text-align: center;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+          
+      }
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-    </style>
+
+      .btn-primary:hover {
+          background-color: #0056b3;
+      }
+ 
+  </style>
 </head>
-<body>
-    <div class="container">
-        <form [formGroup]="nominee_details" (ngSubmit)="onSubmit()">
-            <h1 class="text-center">Nominee Details</h1><br>
-            <div class="form-group">
-                <label for="firstname" class="required" style="white-space: nowrap;">Nominee Name</label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="nomineename" class="form-control" formControlName="nomineename" placeholder="Enter Nominee Name">
-                <div *ngIf="nominee_details.get('nomineename')?.hasError('pattern')" class="error-message">
-                    Nominee name must be a character.
-                </div>
-            </div>
-            <pre></pre>
-            <div class="form-group">
-                <label for="dateofbirth" class="required" style="white-space: nowrap;">Date Of Birth</label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="dateofbirth" class="form-control" formControlName="dateofbirth" placeholder="Select Date of Birth">
-                <div *ngIf="nominee_details.get('dateofbirth')?.hasError('futureDate')" class="error-message">
-                    Not a valid date.
-                </div>
-            </div>
-            <pre></pre><br>
-            <div class="form-group">
-                <label for="relationship" class="required"style="white-space: nowrap;">Relationship</label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="relationship" class="form-control" formControlName="relationship" placeholder="Enter Relationship">
-                <div *ngIf="nominee_details.get('relationship')?.hasError('pattern')" class="error-message">
-                    Relationship must be a character.
-                </div>
-            </div>
-            <pre></pre>
 
-            <!-- ... existing form code ... -->
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+  <a href="#" class="brand">
+    <i class='bx bxs-smile'></i>
+    <span class="text">AdminHub</span>
+  </a>
+  <ul class="side-menu top">
+    <li class="active">
+      <a href="#">
+        <i class='bx bxs-dashboard' ></i>
+        &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-briefcase' ></i>
+        <span class="text">My Portfolio</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+          <i class='bx bxs-credit-card'></i>
+        <span class="text">Transactions</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-heart' ></i>
+        <span class="text">Watchlist</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-dollar-circle' ></i>
+        <span class="text">Build Wealth</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-chart' ></i>
+        <span class="text">Portfolio Analyser</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="side-menu">
+    <li>
+      <a href="#">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="logout">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<!-- SIDEBAR -->
 
-            <div class="form-check" >
-                <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input" formControlName="noNominee" [(ngModel)]="isChecked" (change)="handleChange()">
-                <label for="noNominee" class="form-check-label" >I don't want to add a nominee</label>
-            </div>
 
-            <!-- ... existing form code ... -->
 
-            <pre></pre>
-            <button class="btn-primary" type="submit">CONTINUE</button>
-        </form>
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <!-- <i (click)="addToggle()" class='bx bx-menu' ></i> -->
+    <!-- <a href="#" class="nav-link">Categories</a> -->
+    <form action="#">
+      <div class="form-input">
+        <input type="search" placeholder="Type to explore funds...">
+        <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+      </div>
+    </form>
+    <a href="#" class="notification">
+      <i class='bx bxs-bell' ></i>
+      <span class="num">8</span>
+    </a>
+    <a href="#" class="profile">
+      <!-- <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g"> -->
+      <i class='bx bx-user'></i>
+    </a>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- MAIN -->
+ <main>
+  <div class="head-title">
+    <div class="left">
+      <h1>Dashboard</h1>
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li><i class='bx bx-chevron-right' ></i></li>
+        <li>
+          <a class="active" href="#">My Portfolio</a>
+        </li>
+      </ul>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@angular/material@13.2.2/bundles/material.umd.js"></script>
-</body>
-</html>
+    <!-- <a href="#" class="btn-download">
+      <i class='bx bxs-cloud-download' ></i>
+      <span class="text">Download PDF</span>
+    </a> -->
+  </div>
+  
+  <div class="container">
+      <form [formGroup]="nominee_details" (ngSubmit)="onSubmit()">
+          &nbsp;<h1 class="text-align">Nominee Details</h1><br>
+          <div class="form-group">
+              <label for="firstname" class="required" style="white-space: nowrap;">Nominee Name</label>
+              &nbsp; &nbsp;&nbsp; &nbsp;   <input type="text" name="nomineename" class="form-control" formControlName="nomineename" placeholder="Nominee Name">
+              <div *ngIf="nominee_details.get('nomineename')?.hasError('pattern')" class="error-message">
+                  Nominee name must be a character.
+              </div>
+          </div>
+          <pre></pre>
+          <div class="form-group">
+          <label for="dateofbirth" class="required" style="white-space: nowrap;">Date Of Birth</label>
+          &nbsp; &nbsp;&nbsp; &nbsp;<input type="date" name="dateofbirth" class="form-control" formControlName="dateofbirth" placeholder="Select Date of Birth">
+              <div *ngIf="nominee_details.get('dateofbirth')?.hasError('futureDate')" class="error-message">
+                  Not a valid date.
+              </div>
+          </div>
+          <pre></pre>
+          <div class="form-group">
+              <label for="relationship" class="required"style="white-space: nowrap;">Relationship</label>
+              &nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="relationship" class="form-control" formControlName="relationship" placeholder="Relationship">
+              <div *ngIf="nominee_details.get('relationship')?.hasError('pattern')" class="error-message">
+                  Relationship must be a character.
+              </div>
+          </div>
+          <pre></pre>
+<br>
+          <!-- ... existing form code ... -->
+          <div class="form-check">
+              <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input" formControlName="noNominee" [(ngModel)]="isChecked" (change)="handleChange()">
+              <label for="noNominee" class="form-check-label" ><b>I don't want to add a nominee</b></label>
+              &nbsp; &nbsp; &nbsp;<button class="btn-primary continue-button" type="submit">CONTINUE</button>
+          </div>
+
+          <!-- ... existing form code ... -->
+
+          <pre></pre>
+          
+      
+      </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@angular/material@13.2.2/bundles/material.umd.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+

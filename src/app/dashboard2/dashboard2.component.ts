@@ -12,11 +12,11 @@ export class Dashboard2Component implements OnInit {
   ngOnInit(): void {
   }
 
-  //Sidebar toggle show hide function
-  status = false;
-  addToggle()
-  {
-   this.status = !this.status;       
-  }
+    //Sidebar toggle show hide function
+    status = false;
+    addToggle()
+    {
+     this.status = !this.status;       
+    }
 
 }
