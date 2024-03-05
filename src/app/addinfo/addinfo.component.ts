@@ -111,6 +111,7 @@
           alert("User Data Submitted Successfully");
           // alert("Success");
           // this.router.navigate(['/login']);
+          this.router.navigate(['/bank_details']);
         });
       }
       else {
@@ -124,4 +125,10 @@
   {
    this.status = !this.status;       
   }
+
+  logout() {
+    if (confirm("Logout Successful.")) {
+      this.router.navigate(['/login']);
+    }
   }
+}
