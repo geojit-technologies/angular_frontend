@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { NomineedetailsService } from '../services/nomineedetails.service';
 import { Router } from '@angular/router';
 import { AbstractControl } from '@angular/forms';
+
 @Component({
   selector: 'app-nominee-details',
   templateUrl: './nominee-details.component.html',
@@ -32,6 +33,8 @@ export class NomineeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+
 
   futureDateValidator(control: AbstractControl): { [key: string]: any } | null {
     const selectedDate = new Date(control.value);
@@ -110,8 +113,21 @@ export class NomineeDetailsComponent implements OnInit {
         console.log(resultData, "resultData");
         localStorage.setItem('userID', resultData);
         alert("nominee details entered successfully");
+        this.router.navigate(['/addinfo']);
       });
       // }
     }
   }
+    //Sidebar toggle show hide function
+    status = false;
+    addToggle()
+    {
+     this.status = !this.status;       
+    }
+
+    logout(){
+      if (confirm("Logout Successful")){
+        this.router.navigate(['/login']);
+      }
+    }
 }
