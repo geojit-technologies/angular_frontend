@@ -1,27 +1,306 @@
-<div class="container">
-    <h1>NOMINEE DETAILS</h1>
-    <form [formGroup]="nominee_details" (ngSubmit)="(onSubmit)">
-        <div class="form-group">
-            <label for="firstname">NOMINEE NAME</label><br>
-            <input type="text" name = "nomineename" class="form-control" formControlName="nomineename">
-        </div>
-        <pre></pre>
-        <div class="form-group">
-            <label for="dateofbirth">DATE OF BIRTH</label><br>
-            <input type="date" name = "dateofbirth" class="form-control" formControlName="dateofbirth">
-        </div>
-        <pre></pre>
-        <div class="form-group">
-            <label for="relationship">RELATIONSHIP</label><br>
-            <input type="text" name = "relationship" class="form-control"formControlName="relationship">
-        </div>
-        <pre></pre>
-        <div class="form-check">
-            <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input">
-            <label for="noNominee" class="form-check-label">I don't want to add a nominee</label>
-        </div>
-        <pre></pre>
-        <button class="btn btn-primary" type="continue">CONTINUE</button>
+
+<head>
+  <title>Nominee Details</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+      body {
+          font-family: Roboto, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #fff;
+  padding: 27px;
+  /* border: 1px solid #4b8df7; */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column; /* Change to column to align items vertically */
+  align-items: flex-start; /* Align items to the start (left) */
+  justify-content: left;
+  
+}
+
+.required::before{
+  content: '*';
+  color: red;
+  margin-right: 5px;
+}
+
+h1 {
+  text-align: left; /* Align the heading to the left */
+  margin-bottom: 20px; /* Add margin for spacing */
+  font-size: 24px;
+  color: #333;
+}
+
+label{
+font-weight: bold;
+color: #555;
+}
+
+input[type="text"],
+.mat-form-field
+{
+  width: 200%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+input[type="date"],
+.mat-form-field
+{
+  width: 200%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+
+.mat-checkbox{
+  margin-left: 15px;
+}
+
+.form-group {
+  width: 200%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row; /* Keep it as row */
+  align-items: center; /* Align items vertically in the center */
+
+}
+
+.form-group label {
+  flex: 1;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  color: black;
+  text-align: left;
+}
+
+.form-group input,
+.form-group select {
+  flex: 2; /* Adjusted flex value */
+  width: 100%;
+  max-width: 400%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  
+}
+
+
+      .error-message {
+          color: red;
+          font-size: 12px;
+          margin-top: 5px;
+      }
+
+      .form-check {
+          display: flex; 
+          align-items: center;
+          margin-top: 15px;
+      }
+
+      .form-check input {
+          margin-right: 10px;
+      }
+
+      .btn-primary {
+          
+          background-color: #12b300;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          display: inline-block;
+          text-align: center;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+          
+      }
+
+
+      .btn-primary:hover {
+          background-color: #12b300;
+      }
+ 
+  </style>
+</head>
+
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''"><br>
+  <a href="#" class="brand">
+    <img src="data:image/png;base64,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" alt="Logo">
+</a>
+  <ul class="side-menu top">
+    <li class="active">
+      <a href="#">
+        <i class='bx bxs-dashboard' ></i>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-briefcase' ></i>
+        <span class="text">My Portfolio</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+          <i class='bx bxs-credit-card'></i>
+        <span class="text">Transactions</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-heart' ></i>
+        <span class="text">Watchlist</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-dollar-circle' ></i>
+        <span class="text">Build Wealth</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-chart' ></i>
+        <span class="text">Portfolio Analyser</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="side-menu">
+    <li>
+      <a href="#">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="logout" (click)="logout()">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<!-- SIDEBAR -->
+
+
+
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <!-- <i (click)="addToggle()" class='bx bx-menu' ></i> -->
+    <!-- <a href="#" class="nav-link">Categories</a> -->
+    <form action="#">
+      <div class="form-input">
+        <input type="search" placeholder="Type to explore funds...">
+        <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+      </div>
     </form>
-</div>
+    <a href="#" class="notification">
+      <i class='bx bxs-bell' ></i>
+      <span class="num">8</span>
+    </a>
+    <a href="#" class="profile">
+      <!-- <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g"> -->
+      <i class='bx bx-user'></i>
+    </a>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- MAIN -->
+ <main>
+  <div class="head-title">
+    <div class="left">
+      <h1>Dashboard</h1>
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li><i class='bx bx-chevron-right' ></i></li>
+        <li>
+          <a class="active" href="#">My Portfolio</a>
+        </li>
+      </ul>
+    </div>
+    <!-- <a href="#" class="btn-download">
+      <i class='bx bxs-cloud-download' ></i>
+      <span class="text">Download PDF</span>
+    </a> -->
+  </div>
+  
+  <div class="container">
+      <form [formGroup]="nominee_details" (ngSubmit)="onSubmit()">
+          &nbsp;<h1 class="text-align">Nominee Details</h1><br>
+          <div class="form-group">
+              <label for="firstname" class="required" style="white-space: nowrap;">Nominee Name</label>
+              &nbsp; &nbsp;&nbsp; &nbsp;   <input type="text" name="nomineename" class="form-control" formControlName="nomineename" placeholder="Nominee Name">
+              <div *ngIf="nominee_details.get('nomineename')?.hasError('pattern')" class="error-message">
+                  Nominee name must be a character.
+              </div>
+          </div>
+          <pre></pre>
+          <div class="form-group">
+          <label for="dateofbirth" class="required" style="white-space: nowrap;">Date Of Birth</label>
+          &nbsp; &nbsp;&nbsp; &nbsp;<input type="date" name="dateofbirth" class="form-control" formControlName="dateofbirth" placeholder="Select Date of Birth">
+              <div *ngIf="nominee_details.get('dateofbirth')?.hasError('futureDate')" class="error-message">
+                  Not a valid date.
+              </div>
+          </div>
+          <pre></pre>
+          <div class="form-group">
+              <label for="relationship" class="required"style="white-space: nowrap;">Relationship</label>
+              &nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="relationship" class="form-control" formControlName="relationship" placeholder="Relationship">
+              <div *ngIf="nominee_details.get('relationship')?.hasError('pattern')" class="error-message">
+                  Relationship must be a character.
+              </div>
+          </div>
+          <pre></pre>
+<br>
+          <!-- ... existing form code ... -->
+          <div class="form-check">
+              <input type="checkbox" id="noNominee" name="noNominee" class="form-check-input" formControlName="noNominee" [(ngModel)]="isChecked" (change)="handleChange()">
+              <label for="noNominee" class="form-check-label" >I don't want to add a nominee</label>
+              &nbsp; &nbsp; &nbsp;<button class="btn-primary continue-button" type="submit">Continue</button>
+          </div>
+
+          <!-- ... existing form code ... -->
+
+          <pre></pre>
+          
+      
+      </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@angular/material@13.2.2/bundles/material.umd.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
@@ -13,6 +14,12 @@ export class ProfilesComponent {
 
   navigateToMembershipActivation() {
     this.router.navigate(['/membership-activation']);
+  }
+  //Sidebar toggle show hide function
+  status = false;
+  addToggle()
+  {
+   this.status = !this.status;       
   }
 }
 

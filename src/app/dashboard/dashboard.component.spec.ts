@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProofUploadComponent } from './proof-upload.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('ProofUploadComponent', () => {
-  let component: ProofUploadComponent;
-  let fixture: ComponentFixture<ProofUploadComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProofUploadComponent ]
+      declarations: [ DashboardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProofUploadComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('ProofUploadComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});3
-
+});
