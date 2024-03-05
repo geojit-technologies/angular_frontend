@@ -1,3 +1,4 @@
+@import '~boxicons/css/boxicons.min.css';
 .container {
     display: flex;
     justify-content: center;
@@ -32,23 +33,23 @@
 }
 
 .login__input {
-    width: calc(100% - 40px);
+    width: calc(100% - -6px);
     padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #12b300;
+    border-radius: 9px;
     outline: none;
 }
 
 .login__submit {
-    width: 100%;
-    padding: 10px 0;
+    width: 51%;
+    padding: 8px 0;
     background-color: #12b300;
-    color: #0000fff;
+    color: #0000ff f;
     border: none;
-    border-radius: 5px;
+    border-radius: 19px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 10px; /* Add margin between buttons */
+    margin-bottom: 10px;
 }
 
 .login__submit:hover {
@@ -62,3 +63,29 @@
 .button__icon {
     margin-left: 10px;
 }
+.center {
+    text-align: center;
+  }
+  .center {
+    text-align: center;
+  }
+  
+  .button-container {
+    text-align: center;
+  }
+  
+  .Heading {
+    font-size: 24px; /* Adjust size as needed */
+    font-weight: bold;
+    color: #383938; /* Change color as needed */
+    margin-top: 20px;
+  }
+  
+  .center {
+    text-align: center;
+    
+  }
+
+  .icon {
+    color: #12b300; /* Set the color of the icon */
+  }
