@@ -15,7 +15,12 @@ export class ProfilesComponent {
   navigateToMembershipActivation() {
     this.router.navigate(['/membership-activation']);
   }
-  
+  //Sidebar toggle show hide function
+  status = false;
+  addToggle()
+  {
+   this.status = !this.status;       
+  }
 }
 
 
