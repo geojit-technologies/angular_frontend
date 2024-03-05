@@ -22,7 +22,7 @@ export class NomineeDetailsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private NomineeDetailsService: NomineedetailsService, private http: HttpClient, private router: Router) {
     this.nominee_details = this.fb.group({
-      nomineename: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
+      nomineename: ['', [Validators.required,Validators.pattern(/^[a-zA-Z\s]+$/)]],
       dateofbirth: ['', [Validators.required,this.futureDateValidator]],
       relationship: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
       noNominee: [false]  // Update the form control name to 'noNominee'
@@ -84,7 +84,7 @@ export class NomineeDetailsComponent implements OnInit {
         this.nominee_details.get('dateofbirth')?.clearValidators();
         this.nominee_details.get('relationship')?.clearValidators();
       } else {
-        // If 'noNominee' checkbox is unchecked, add validations back
+        
         this.nominee_details.get('nomineename')?.setValidators([Validators.required]);
         this.nominee_details.get('dateofbirth')?.setValidators([Validators.required]);
         this.nominee_details.get('relationship')?.setValidators([Validators.required]);
