@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BankDetailsService } from '../services/bank-details.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class BankDetailsComponent implements OnInit {
   maxIfscCodeLength: number = 15; // Set your desired maximum length
 
 
-  constructor(private fb: FormBuilder,private BankDetailsService: BankDetailsService, private http: HttpClient) {
+  constructor(private fb: FormBuilder,private BankDetailsService: BankDetailsService, private http: HttpClient, private router: Router) {
     this.bank_details = this.fb.group({
       accountType: ['', Validators.required],
       accountNumber: ['', [Validators.required, Validators.pattern(/^\d+$/), Validators.minLength(8)]],
@@ -61,6 +62,7 @@ isIfscCodeDisabled(): boolean {
         console.log(resultData, "resultData");
         localStorage.setItem('userID', resultData);
         alert("bank details entered successfully");
+        
       });
     } else {
       // Display an alert indicating that required fields must be entered
