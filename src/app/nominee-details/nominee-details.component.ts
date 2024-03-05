@@ -84,7 +84,7 @@ export class NomineeDetailsComponent implements OnInit {
         this.nominee_details.get('dateofbirth')?.clearValidators();
         this.nominee_details.get('relationship')?.clearValidators();
       } else {
-        // If 'noNominee' checkbox is unchecked, add validations back
+        
         this.nominee_details.get('nomineename')?.setValidators([Validators.required]);
         this.nominee_details.get('dateofbirth')?.setValidators([Validators.required]);
         this.nominee_details.get('relationship')?.setValidators([Validators.required]);
