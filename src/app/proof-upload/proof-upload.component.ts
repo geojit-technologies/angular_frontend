@@ -81,6 +81,8 @@ export class ProofUploadComponent implements OnInit {
     this.ProofUploadService.submitProofData(userData).subscribe((data) => {
       console.log(data, "data123456");
       alert("proof Details uploaded successfully");
+      this.router.navigate(['/home']); 
+      
     });
   }
   //Sidebar toggle show hide function

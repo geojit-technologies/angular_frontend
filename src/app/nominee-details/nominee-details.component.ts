@@ -22,7 +22,7 @@ export class NomineeDetailsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private NomineeDetailsService: NomineedetailsService, private http: HttpClient, private router: Router) {
     this.nominee_details = this.fb.group({
-      nomineename: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
+      nomineename: ['', [Validators.required,Validators.pattern(/^[a-zA-Z\s]+$/)]],
       dateofbirth: ['', [Validators.required,this.futureDateValidator]],
       relationship: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+$/)]],
       noNominee: [false]  // Update the form control name to 'noNominee'
@@ -113,6 +113,7 @@ export class NomineeDetailsComponent implements OnInit {
         console.log(resultData, "resultData");
         localStorage.setItem('userID', resultData);
         alert("nominee details entered successfully");
+        this.router.navigate(['/addinfo']);
       });
       // }
     }

@@ -54,7 +54,7 @@ export class SigninComponent implements OnInit {
           alert("incorrect email and password not match")
         }
       });
-  }
+  } 
   }
  
 }
