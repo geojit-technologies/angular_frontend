@@ -111,6 +111,7 @@
           alert("User Data Submitted Successfully");
           // alert("Success");
           // this.router.navigate(['/login']);
+          this.router.navigate(['/bank_details']);
         });
       }
       else {

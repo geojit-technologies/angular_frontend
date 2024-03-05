@@ -1,5 +1,109 @@
 <!-- src/app/membership-activation/membership-activation.component.html -->
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+  <a href="#" class="brand">
+    <i class='bx bxs-smile'></i>
+    <span class="text">AdminHub</span>
+  </a>
+  <ul class="side-menu top">
+    <li class="active">
+      <a href="#">
+        <i class='bx bxs-dashboard' ></i>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-briefcase' ></i>
+        <span class="text">My Portfolio</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+          <i class='bx bxs-credit-card'></i>
+        <span class="text">Transactions</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-heart' ></i>
+        <span class="text">Watchlist</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-dollar-circle' ></i>
+        <span class="text">Build Wealth</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-chart' ></i>
+        <span class="text">Portfolio Analyser</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="side-menu">
+    <li>
+      <a href="#">
+        <i class='bx bxs-cog' ></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="logout">
+        <i class='bx bxs-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</section>
+<!-- SIDEBAR -->
 
+
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <i (click)="addToggle()" class='bx bx-menu' ></i>
+    <!-- <a href="#" class="nav-link">Categories</a> -->
+    <form action="#">
+      <div class="form-input">
+        <input type="search" placeholder="Type to explore funds...">
+        <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+      </div>
+    </form>
+    <a href="#" class="notification">
+      <i class='bx bxs-bell' ></i>
+      <span class="num">8</span>
+    </a>
+    <a href="#" class="profile">
+      <!-- <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g"> -->
+      <i class='bx bx-user'></i>
+    </a>
+  </nav>
+  <!-- NAVBAR -->
+
+<!-- MAIN -->
+   <main>
+    <div class="head-title">
+      <div class="left">
+        <h1>Dashboard</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">Dashboard</a>
+          </li>
+          <li><i class='bx bx-chevron-right' ></i></li>
+          <li>
+            <a class="active" href="#">My Portfolio</a>
+          </li>
+        </ul>
+      </div>
+      <!-- <a href="#" class="btn-download">
+        <i class='bx bxs-cloud-download' ></i>
+        <span class="text">Download PDF</span>
+      </a> -->
+    </div>
 <div class="membership-container">
     <h2>Membership Activation</h2>
     &nbsp;
@@ -35,4 +139,3 @@
       <button type="submit" [disabled]="!membershipForm.valid">Submit</button>
     </form>
   </div>
-  
