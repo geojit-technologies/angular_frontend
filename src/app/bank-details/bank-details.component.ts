@@ -62,6 +62,9 @@ isIfscCodeDisabled(): boolean {
         console.log(resultData, "resultData");
         localStorage.setItem('userID', resultData);
         alert("bank details entered successfully");
+
+        
+
         this.router.navigate(['/proof-upload']);
       });
     } else {
