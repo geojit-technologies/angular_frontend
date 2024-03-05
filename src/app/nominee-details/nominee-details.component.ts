@@ -123,4 +123,10 @@ export class NomineeDetailsComponent implements OnInit {
     {
      this.status = !this.status;       
     }
+
+    logout(){
+      if (confirm("Logout Successful")){
+        this.router.navigate(['/login']);
+      }
+    }
 }
