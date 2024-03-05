@@ -159,10 +159,10 @@ justify-content: center;
 
 /* CONTENT */
 #content {
-position: relative;
-width: calc(100% - -701px);
-left: -211px;
-transition: .3s ease;
+    position: relative;
+    width: calc(100% - -847px);
+    left: -284px;
+    transition: .3s ease;
 }
 #sidebar.hide ~ #content {
 width: calc(100% - 60px);
@@ -185,6 +185,7 @@ position: sticky;
 top: 0;
 left: 0;
 z-index: 1000;
+margin-top: -354px;
 }
 #content nav::before {
 content: '';
