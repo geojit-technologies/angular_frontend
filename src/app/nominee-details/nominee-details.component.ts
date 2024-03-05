@@ -113,6 +113,7 @@ export class NomineeDetailsComponent implements OnInit {
         console.log(resultData, "resultData");
         localStorage.setItem('userID', resultData);
         alert("nominee details entered successfully");
+        this.router.navigate(['/addinfo']);
       });
       // }
     }
