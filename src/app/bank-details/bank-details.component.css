@@ -330,10 +330,10 @@ justify-content: center;
 
 /* CONTENT */
 #content {
-position: relative;
-width: calc(100% - -701px);
-left: -211px;
-transition: .3s ease;
+  position: relative;
+  width: calc(100% - -714px);
+  left: -224px;
+  transition: .3s ease;
 }
 #sidebar.hide ~ #content {
 width: calc(100% - 60px);
@@ -356,6 +356,7 @@ position: sticky;
 top: 0;
 left: 0;
 z-index: 1000;
+margin-top: 0px;
 }
 #content nav::before {
 content: '';
@@ -476,8 +477,9 @@ left: calc(100% - (25px - 4px) - 2px);
 width: 100%;
 padding: 36px 24px;
 font-family: var(--poppins);
-max-height: calc(100vh - 56px);
+/* max-height: calc(100vh - 56px); */
 overflow-y: auto;
+height: 716px;
 }
 #content main .head-title {
 display: flex;
