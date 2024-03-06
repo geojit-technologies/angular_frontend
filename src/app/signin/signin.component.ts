@@ -49,7 +49,7 @@ export class SigninComponent implements OnInit {
         {
           localStorage.setItem('userIDData',resultData.userID)
           console.log(this.signinForm.value.username,"this.signinForm.value.username")
-          this.router.navigate(['/home', {username: resultData.name}]);
+          this.router.navigate(['/dashboard2', {username: resultData.name}]);
         }
         else{
           alert("incorrect email and password not match")
