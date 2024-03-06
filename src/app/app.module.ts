@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 
+
 @NgModule({
   declarations: [
 
@@ -64,7 +65,7 @@ import { Dashboard2Component } from './dashboard2/dashboard2.component';
     MatFormFieldModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
-
+    
     MatRadioModule,
     MatCheckboxModule
   ],

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service'; // Update with the actual path
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { BxUser } from 'boxicons';
  
 @Component({
   selector: 'app-signin',
