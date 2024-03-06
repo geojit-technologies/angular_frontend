@@ -30,10 +30,6 @@ export class ProfilesComponent {
   addToggle() {
     this.status = !this.status;
   }
-  private getUserData(username: string) {
-    // Assuming you have a method to retrieve user data based on the username
-    // You can set this.user based on your data retrieval logic
-    // Example: this.user = userService.getUserByUsername(username);
-  }
+  
 }
 
