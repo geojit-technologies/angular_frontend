@@ -5,6 +5,7 @@
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 css
 *{
   box-sizing: border-box;
@@ -76,6 +77,7 @@ body {
   }
 
   /* You can add global styles to this file, and also import other style files */
+
 
 * {
   margin: 0;

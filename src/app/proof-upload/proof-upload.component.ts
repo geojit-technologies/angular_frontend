@@ -81,6 +81,8 @@ export class ProofUploadComponent implements OnInit {
     this.ProofUploadService.submitProofData(userData).subscribe((data) => {
       console.log(data, "data123456");
       alert("proof Details uploaded successfully");
+      this.router.navigate(['/home']); 
+      
     });
   }
   //Sidebar toggle show hide function
@@ -89,5 +91,13 @@ export class ProofUploadComponent implements OnInit {
   // {
   //  this.status = !this.status;       
   // }
+  logout() {
+    // Add any additional logout logic here
+    // For example, clearing local storage, session storage, etc.
+    if (confirm("Logout Successful.")) {
+    // Navigate to the login page
+    this.router.navigate(['/login']); // Replace '/login' with the actual route to your login page
+  }
+  }
 
 }
