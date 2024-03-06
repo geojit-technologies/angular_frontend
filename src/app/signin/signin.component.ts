@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../services/user.service'; // Update with the actual path
+import { UserService } from '../services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BxUser } from 'boxicons';
@@ -49,7 +49,7 @@ export class SigninComponent implements OnInit {
         {
           localStorage.setItem('userIDData',resultData.userID)
           console.log(this.signinForm.value.username,"this.signinForm.value.username")
-          this.router.navigate(['/home', {username: resultData.name}]);
+          this.router.navigate(['/dashboard2', {username: resultData.name}]);
         }
         else{
           alert("incorrect email and password not match")
