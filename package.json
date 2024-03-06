@@ -22,6 +22,7 @@
     "@angular/router": "^14.0.0",
     "add": "^2.0.6",
     "bootstrap": "^5.3.3",
+    "boxicons": "^2.1.4",
     "cors": "^2.8.5",
     "ng": "^0.0.0",
     "ng2-pdf-viewer": "^10.0.0",
